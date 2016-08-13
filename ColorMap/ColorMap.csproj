@@ -39,7 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Algorithm\Algorithm.cs" />
+    <Compile Include="Management\ImageDataLoader.cs" />
+    <Compile Include="DataStructure\ProcessedImageData.cs" />
+    <Compile Include="Algorithm\QueueFloodFill.cs" />
+    <Compile Include="Management\ImagePreProcessing\ImageContext.cs" />
+    <Compile Include="Management\ImagePreProcessing\ImageLoad.cs" />
+    <Compile Include="Management\ImagePreProcessing\ImagePreProcessAction.cs" />
+    <Compile Include="DataStructure\ImagePreProcessingData.cs" />
+    <Compile Include="Management\ImagePreProcessing\ImageTransform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -3,6 +3,9 @@ namespace ColorMap.Management
 {
     using ColorMap.DataStructure;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class ImageDataLoader
     {
         private string _pathToString { get; set; }

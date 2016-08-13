@@ -5,6 +5,15 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorMap", "ColorMap\ColorMap.csproj", "{EF83043B-9808-4DC7-8BEA-C19D16D50E34}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorMapTest", "ColorMapTest\ColorMapTest.csproj", "{FBEA95E8-65C0-4E65-890C-3D9EA777C3A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{CC0F5F84-8829-4C5A-96AB-E434A3D605AB}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleGenerator", "ExampleGenerator\ExampleGenerator.csproj", "{2550C688-07DF-4108-A67A-79CE5A3CA4C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +24,14 @@ Global
 		{EF83043B-9808-4DC7-8BEA-C19D16D50E34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF83043B-9808-4DC7-8BEA-C19D16D50E34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF83043B-9808-4DC7-8BEA-C19D16D50E34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBEA95E8-65C0-4E65-890C-3D9EA777C3A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBEA95E8-65C0-4E65-890C-3D9EA777C3A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBEA95E8-65C0-4E65-890C-3D9EA777C3A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBEA95E8-65C0-4E65-890C-3D9EA777C3A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2550C688-07DF-4108-A67A-79CE5A3CA4C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2550C688-07DF-4108-A67A-79CE5A3CA4C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2550C688-07DF-4108-A67A-79CE5A3CA4C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2550C688-07DF-4108-A67A-79CE5A3CA4C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

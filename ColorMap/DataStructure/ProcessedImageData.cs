@@ -1,6 +1,9 @@
 ﻿
-namespace ColorMap
+namespace ColorMap.DataStructure
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ProcessedImageData
     {
         public string Path { get; set; }
