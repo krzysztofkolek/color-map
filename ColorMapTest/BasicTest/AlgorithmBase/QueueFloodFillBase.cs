@@ -8,8 +8,8 @@ namespace ColorMapTest.BasicTest.AlgorithmBase
 
     public class QueueFloodFillBase : BaseTest
     {
-        private Algorithm _queueFloodFillAlgorithm;
-        protected Algorithm QueueFloodFillAlgorithm
+        private QueueFloodFill _queueFloodFillAlgorithm;
+        protected QueueFloodFill QueueFloodFillAlgorithm
         {
             get
             {
@@ -22,11 +22,11 @@ namespace ColorMapTest.BasicTest.AlgorithmBase
         }
 
 
-        public static IEnumerable<QueueFloodFillData> DataFromGenerator
+        public static IEnumerable<QueueFloodFillListData> DataListFromGenerator
         {
             get
             {
-                yield return new QueueFloodFillData()
+                yield return new QueueFloodFillListData()
                 {
                     BlackWhiteImage = ExampleGenerator.FirstBlackWhite,
                     PointsToTest = new List<QueueFloodFillDataPoint>()
@@ -38,7 +38,7 @@ namespace ColorMapTest.BasicTest.AlgorithmBase
                     }
                 };
 
-                yield return new QueueFloodFillData()
+                yield return new QueueFloodFillListData()
                 {
                     BlackWhiteImage = ExampleGenerator.SecondBlackWhite,
                     PointsToTest = new List<QueueFloodFillDataPoint>()
@@ -47,6 +47,42 @@ namespace ColorMapTest.BasicTest.AlgorithmBase
                     },
                     AlgorithmStartPoints = new List<QueueFloodFillDataPoint>()
                     {
+                    }
+                };
+            }
+        }
+
+
+        public static IEnumerable<QueueFloodFillData> DataFromGenerator
+        {
+            get
+            {
+                yield return new QueueFloodFillData()
+                {
+                    BlackWhiteImage = ExampleGenerator.FirstBlackWhite,
+                    PointToTest = new List<QueueFloodFillDataPoint>()
+                    {
+                        new QueueFloodFillDataPoint() { X = 1, Y = 1 },
+                        new QueueFloodFillDataPoint() { X = 2, Y = 1 },
+                        new QueueFloodFillDataPoint() { X = 3, Y = 1 },
+                        new QueueFloodFillDataPoint() { X = 4, Y = 1 },
+                        new QueueFloodFillDataPoint() { X = 5, Y = 1 },
+                        new QueueFloodFillDataPoint() { X = 1, Y = 2 },
+                        new QueueFloodFillDataPoint() { X = 2, Y = 2 },
+                        new QueueFloodFillDataPoint() { X = 3, Y = 2 },
+                        new QueueFloodFillDataPoint() { X = 4, Y = 2 },
+                        new QueueFloodFillDataPoint() { X = 5, Y = 2 },
+                        new QueueFloodFillDataPoint() { X = 1, Y = 3 },
+                        new QueueFloodFillDataPoint() { X = 1, Y = 3 },
+                        new QueueFloodFillDataPoint() { X = 2, Y = 3 },
+                        new QueueFloodFillDataPoint() { X = 3, Y = 3 },
+                        new QueueFloodFillDataPoint() { X = 4, Y = 3 },
+                        new QueueFloodFillDataPoint() { X = 5, Y = 3 }
+                    },
+                    AlgorithmStartPoint = new QueueFloodFillDataPoint()
+                    {
+                        X = 1,
+                        Y = 1
                     }
                 };
             }

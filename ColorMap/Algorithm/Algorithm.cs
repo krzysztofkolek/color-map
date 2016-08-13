@@ -10,6 +10,11 @@ namespace ColorMap.Algorithm
     {
         private ProcessedImageData _data { get; set; }
 
+        public virtual ProcessedImageData GetData()
+        {
+            return _data;
+        }
 
+        public abstract Algorithm Run();
     }
 }
