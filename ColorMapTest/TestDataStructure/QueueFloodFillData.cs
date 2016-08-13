@@ -6,5 +6,6 @@
     {
         public byte[,] BlackWhiteImage { get; set; }
         public List<QueueFloodFillDataPoint> PointsToTest { get; set; }
+        public List<QueueFloodFillDataPoint> AlgorithmStartPoints { get; set; }
     }
 }

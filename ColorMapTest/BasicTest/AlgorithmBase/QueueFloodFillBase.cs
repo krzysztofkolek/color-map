@@ -32,6 +32,9 @@ namespace ColorMapTest.BasicTest.AlgorithmBase
                     PointsToTest = new List<QueueFloodFillDataPoint>()
                     {
 
+                    },
+                    AlgorithmStartPoints = new List<QueueFloodFillDataPoint>()
+                    {
                     }
                 };
 
@@ -41,6 +44,9 @@ namespace ColorMapTest.BasicTest.AlgorithmBase
                     PointsToTest = new List<QueueFloodFillDataPoint>()
                     {
 
+                    },
+                    AlgorithmStartPoints = new List<QueueFloodFillDataPoint>()
+                    {
                     }
                 };
             }
