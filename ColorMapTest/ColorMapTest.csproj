@@ -77,6 +77,10 @@
       <Project>{ef83043b-9808-4dc7-8bea-c19d16d50e34}</Project>
       <Name>ColorMap</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ExampleGenerator\ExampleGenerator.csproj">
+      <Project>{2550c688-07df-4108-a67a-79ce5a3ca4c8}</Project>
+      <Name>ExampleGenerator</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
