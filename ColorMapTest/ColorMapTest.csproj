@@ -66,8 +66,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Algorithm\QueueFloodFillUnitTest.cs" />
-    <Compile Include="BasicTest\AlgorithmBase\QueueFloodFillBase.cs" />
+    <Compile Include="Algorithm\FloodFill\QueueFloodFillUnitTest.cs" />
+    <Compile Include="BasicTest\AlgorithmBase\FloodFill\QueueFloodFillBase.cs" />
     <Compile Include="BasicTest\BaseTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestDataStructure\QueueFloodFillData.cs" />

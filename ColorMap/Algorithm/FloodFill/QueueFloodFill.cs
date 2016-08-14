@@ -1,6 +1,7 @@
-﻿namespace ColorMap.Algorithm
+﻿namespace ColorMap.Algorithm.FloodFill
 {
     using ColorMap.DataStructure;
+    using ColorMap.DataStructure.FloodFill;
     using System.Collections.Generic;
 
     /// <summary>

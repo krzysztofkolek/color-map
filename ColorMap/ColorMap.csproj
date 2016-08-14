@@ -41,11 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithm\Algorithm.cs" />
-    <Compile Include="DataStructure\QueueFloodFillData.cs" />
-    <Compile Include="DataStructure\QueueFloodFillDataPoint.cs" />
+    <Compile Include="DataStructure\FloodFill\QueueFloodFillData.cs" />
+    <Compile Include="DataStructure\FloodFill\QueueFloodFillDataPoint.cs" />
     <Compile Include="Management\ImageDataLoader.cs" />
     <Compile Include="DataStructure\ProcessedImageData.cs" />
-    <Compile Include="Algorithm\QueueFloodFill.cs" />
+    <Compile Include="Algorithm\FloodFill\QueueFloodFill.cs" />
     <Compile Include="Management\ImagePreProcessing\ImageContext.cs" />
     <Compile Include="Management\ImagePreProcessing\ImageLoad.cs" />
     <Compile Include="Management\ImagePreProcessing\ImagePreProcessAction.cs" />

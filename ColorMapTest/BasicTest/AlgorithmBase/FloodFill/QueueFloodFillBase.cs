@@ -1,7 +1,7 @@
 ﻿
-namespace ColorMapTest.BasicTest.AlgorithmBase
+namespace ColorMapTest.BasicTest.AlgorithmBase.FloodFill
 {
-    using ColorMap.Algorithm;
+    using ColorMap.Algorithm.FloodFill;
     using ColorMapTest.TestDataStructure;
     using ExampleGenerator;
     using System.Collections.Generic;

@@ -1,4 +1,4 @@
-﻿namespace ColorMap.DataStructure
+﻿namespace ColorMap.DataStructure.FloodFill
 {
 
     public class QueueFloodFillData

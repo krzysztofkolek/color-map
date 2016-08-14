@@ -1,6 +1,6 @@
-﻿namespace ColorMapTest.Algorithm
+﻿namespace ColorMapTest.Algorithm.FloodFill
 {
-    using ColorMapTest.BasicTest.AlgorithmBase;
+    using ColorMapTest.BasicTest.AlgorithmBase.FloodFill;
     using ColorMapTest.TestDataStructure;
     using NUnit.Framework;
 
@@ -19,7 +19,7 @@
             byte testBorder = 0x1;
 
             //Act 
-            QueueFloodFillAlgorithm.SetData(new ColorMap.DataStructure.QueueFloodFillData()
+            QueueFloodFillAlgorithm.SetData(new ColorMap.DataStructure.FloodFill.QueueFloodFillData()
             {
                 Image = inputTestObject.BlackWhiteImage,
                 AlgorithmStartPoint = new ColorMap.DataStructure.QueueFloodFillDataPoint()
@@ -50,7 +50,7 @@
             byte testBorder = 0x1;
 
             //Act 
-            QueueFloodFillAlgorithm.SetData(new ColorMap.DataStructure.QueueFloodFillData()
+            QueueFloodFillAlgorithm.SetData(new ColorMap.DataStructure.FloodFill.QueueFloodFillData()
             {
                 Image = inputTestObject.BlackWhiteImage,
                 AlgorithmStartPoint = new ColorMap.DataStructure.QueueFloodFillDataPoint()
@@ -84,7 +84,7 @@
             //Act
             foreach (var startingPoint in inputTestObject.AlgorithmStartPoints)
             {
-                QueueFloodFillAlgorithm.SetData(new ColorMap.DataStructure.QueueFloodFillData()
+                QueueFloodFillAlgorithm.SetData(new ColorMap.DataStructure.FloodFill.QueueFloodFillData()
                 {
                     Image = inputTestObject.BlackWhiteImage,
                     AlgorithmStartPoint = new ColorMap.DataStructure.QueueFloodFillDataPoint()
