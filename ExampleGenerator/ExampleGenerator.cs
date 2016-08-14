@@ -8,6 +8,21 @@ namespace ExampleGenerator
     /// </summary>
     public class ExampleGenerator
     {
+        public static byte[,] StartingBlackWhite
+        {
+            get
+            {
+                return new byte[,] 
+                {
+                    {0x1,0x1,0x1,0x1,0x1},
+                    {0x1,0x0,0x0,0x0,0x1},
+                    {0x1,0x0,0x0,0x0,0x1},
+                    {0x1,0x0,0x0,0x0,0x1},
+                    {0x1,0x1,0x1,0x1,0x1}
+                };
+            }
+        }
+
         public static byte[,] FirstBlackWhite
         {
             get

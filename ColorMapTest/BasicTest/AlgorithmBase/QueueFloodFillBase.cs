@@ -21,37 +21,33 @@ namespace ColorMapTest.BasicTest.AlgorithmBase
             }
         }
 
-
-        public static IEnumerable<QueueFloodFillListData> DataListFromGenerator
+        public static IEnumerable<QueueFloodFillData> DataFromStartingGenerator
         {
             get
             {
-                yield return new QueueFloodFillListData()
+                yield return new QueueFloodFillData()
                 {
-                    BlackWhiteImage = ExampleGenerator.FirstBlackWhite,
-                    PointsToTest = new List<QueueFloodFillDataPoint>()
+                    BlackWhiteImage = ExampleGenerator.StartingBlackWhite,
+                    PointToTest = new List<QueueFloodFillDataPoint>()
                     {
-
+                        new QueueFloodFillDataPoint() { X = 1, Y = 1 },
+                        new QueueFloodFillDataPoint() { X = 2, Y = 1 },
+                        new QueueFloodFillDataPoint() { X = 3, Y = 1 },
+                        new QueueFloodFillDataPoint() { X = 1, Y = 2 },
+                        new QueueFloodFillDataPoint() { X = 2, Y = 2 },
+                        new QueueFloodFillDataPoint() { X = 3, Y = 2 },
+                        new QueueFloodFillDataPoint() { X = 1, Y = 3 },
+                        new QueueFloodFillDataPoint() { X = 2, Y = 3 },
+                        new QueueFloodFillDataPoint() { X = 3, Y = 3 }
                     },
-                    AlgorithmStartPoints = new List<QueueFloodFillDataPoint>()
+                    AlgorithmStartPoint = new QueueFloodFillDataPoint()
                     {
-                    }
-                };
-
-                yield return new QueueFloodFillListData()
-                {
-                    BlackWhiteImage = ExampleGenerator.SecondBlackWhite,
-                    PointsToTest = new List<QueueFloodFillDataPoint>()
-                    {
-
-                    },
-                    AlgorithmStartPoints = new List<QueueFloodFillDataPoint>()
-                    {
+                        X = 1,
+                        Y = 1
                     }
                 };
             }
         }
-
 
         public static IEnumerable<QueueFloodFillData> DataFromGenerator
         {
@@ -87,5 +83,39 @@ namespace ColorMapTest.BasicTest.AlgorithmBase
                 };
             }
         }
+
+
+        public static IEnumerable<QueueFloodFillListData> DataListFromGenerator
+        {
+            get
+            {
+                yield return new QueueFloodFillListData()
+                {
+                    BlackWhiteImage = ExampleGenerator.FirstBlackWhite,
+                    PointsToTest = new List<QueueFloodFillDataPoint>()
+                    {
+
+                    },
+                    AlgorithmStartPoints = new List<QueueFloodFillDataPoint>()
+                    {
+                    }
+                };
+
+                yield return new QueueFloodFillListData()
+                {
+                    BlackWhiteImage = ExampleGenerator.SecondBlackWhite,
+                    PointsToTest = new List<QueueFloodFillDataPoint>()
+                    {
+
+                    },
+                    AlgorithmStartPoints = new List<QueueFloodFillDataPoint>()
+                    {
+                    }
+                };
+            }
+        }
+
+
+
     }
 }

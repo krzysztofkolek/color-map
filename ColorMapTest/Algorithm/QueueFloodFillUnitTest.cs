@@ -11,11 +11,12 @@
     public class QueueFloodFillUnitTest : QueueFloodFillBase
     {
         [Test]
-        [TestCaseSource("DataFromGenerator")]
-        public void FillOneFiledFromGenerator(QueueFloodFillData inputTestObject)
+        [TestCaseSource("DataFromStartingGenerator")]
+        public void FillOneFiledFromStartingGenerator(QueueFloodFillData inputTestObject)
         {
             // Arrange
             byte testColor = 0x5;
+            byte testBorder = 0x1;
 
             //Act 
             QueueFloodFillAlgorithm.SetData(new ColorMap.DataStructure.QueueFloodFillData()
@@ -26,7 +27,39 @@
                     X = inputTestObject.AlgorithmStartPoint.X,
                     Y = inputTestObject.AlgorithmStartPoint.Y
                 },
-                ReplacementColor = testColor
+                ReplacementColor = testColor,
+                BorderColor = testBorder
+            });
+            QueueFloodFillAlgorithm.Run();
+
+
+            //Assert
+            foreach (var pointForTest in inputTestObject.PointToTest)
+            {
+                Assert.AreEqual(testColor, inputTestObject.BlackWhiteImage[pointForTest.Y, pointForTest.X]);
+
+            }
+        }
+
+        [Test]
+        [TestCaseSource("DataFromGenerator")]
+        public void FillOneFiledFromGenerator(QueueFloodFillData inputTestObject)
+        {
+            // Arrange
+            byte testColor = 0x5;
+            byte testBorder = 0x1;
+
+            //Act 
+            QueueFloodFillAlgorithm.SetData(new ColorMap.DataStructure.QueueFloodFillData()
+            {
+                Image = inputTestObject.BlackWhiteImage,
+                AlgorithmStartPoint = new ColorMap.DataStructure.QueueFloodFillDataPoint()
+                {
+                    X = inputTestObject.AlgorithmStartPoint.X,
+                    Y = inputTestObject.AlgorithmStartPoint.Y
+                },
+                ReplacementColor = testColor,
+                BorderColor = testBorder
             });
             QueueFloodFillAlgorithm.Run();
 

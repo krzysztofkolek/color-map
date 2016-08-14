@@ -2,10 +2,9 @@
 {
     using ColorMap.DataStructure;
     using System.Collections.Generic;
-    using System.Drawing;
 
     /// <summary>
-    /// 
+    /// Queue flood fill 
     /// </summary>
     public class QueueFloodFill : Algorithm
     {
@@ -36,33 +35,89 @@
         {
             int height = bmp.GetLength(1),
                 width = bmp.GetLength(0);
-            byte targetColor = bmp[pt.X, pt.Y];
+            byte targetColor = replacementColor;
 
             Queue<QueueFloodFillDataPoint> q = new Queue<QueueFloodFillDataPoint>();
             q.Enqueue(pt);
             while (q.Count > 0)
             {
-                QueueFloodFillDataPoint n = q.Dequeue();
-                if (!ColorMatch(bmp[n.X, n.Y], targetColor))
-                    continue;
-                QueueFloodFillDataPoint w = n, e = new QueueFloodFillDataPoint(n.X + 1, n.Y);
-                while ((w.X >= 0) && ColorMatch(bmp[w.X, w.Y], targetColor))
+                // Step 0
+                QueueFloodFillDataPoint currentPixel = q.Dequeue();
+
+                // Step 1
+                // Color the current pixel 
+                if (currentPixel.X < width && currentPixel.Y < height)
                 {
-                    bmp[w.X, w.Y] = replacementColor;
-                    if ((w.Y > 0) && ColorMatch(bmp[w.X, w.Y - 1], targetColor))
-                        q.Enqueue(new QueueFloodFillDataPoint(w.X, w.Y - 1));
-                    if ((w.Y < height - 1) && ColorMatch(bmp[w.X, w.Y + 1], targetColor))
-                        q.Enqueue(new QueueFloodFillDataPoint(w.X, w.Y + 1));
-                    w.X--;
+                    if (!ColorMatch(bmp[currentPixel.X, currentPixel.Y], replacementColor))
+                    {
+                        bmp[currentPixel.X, currentPixel.Y] = replacementColor;
+                    }
+                    else
+                    {
+                        continue;
+                    }
                 }
-                while ((e.X <= width - 1) && ColorMatch(bmp[e.X, e.Y], targetColor))
+
+                // Step 2 
+                // Check surrounding pixels 
+                //  Right
+                for (int i = currentPixel.X; i < width; i++)
                 {
-                    bmp[e.X, e.Y] = replacementColor;
-                    if ((e.Y > 0) && ColorMatch(bmp[e.X, e.Y - 1], targetColor))
-                        q.Enqueue(new QueueFloodFillDataPoint(e.X, e.Y - 1));
-                    if ((e.Y < height - 1) && ColorMatch(bmp[e.X, e.Y + 1], targetColor))
-                        q.Enqueue(new QueueFloodFillDataPoint(e.X, e.Y + 1));
-                    e.X++;
+                    if (i < width && currentPixel.Y < height)
+                    {
+                        if (!ColorMatch(bmp[i, currentPixel.Y], _algorithmData.BorderColor))
+                        {
+                            if (!ColorMatch(bmp[i, currentPixel.Y], replacementColor))
+                            {
+                                q.Enqueue(new QueueFloodFillDataPoint(i, currentPixel.Y));
+                            }
+                        }
+                    }
+                }
+
+                //  Down
+                for (int i = currentPixel.Y; i > 0 && i < height; i++)
+                {
+                    if (currentPixel.X < width && i < height)
+                    {
+                        if (!ColorMatch(bmp[currentPixel.X, i], _algorithmData.BorderColor))
+                        {
+                            if (!ColorMatch(bmp[currentPixel.X, i], replacementColor))
+                            {
+                                q.Enqueue(new QueueFloodFillDataPoint(currentPixel.X, i));
+                            }
+                        }
+                    }
+                }
+
+                //  Left
+                for (int i = currentPixel.X; i > 0 && i < width; i--)
+                {
+                    if (i > 0 && i < width && currentPixel.Y < height)
+                    {
+                        if (!ColorMatch(bmp[i, currentPixel.Y], _algorithmData.BorderColor))
+                        {
+                            if (!ColorMatch(bmp[i, currentPixel.Y], replacementColor))
+                            {
+                                q.Enqueue(new QueueFloodFillDataPoint(i, currentPixel.Y));
+                            }
+                        }
+                    }
+                }
+
+                //  Up
+                for (int i = currentPixel.Y; i > 0 && i < height; i--)
+                {
+                    if (currentPixel.X < width && i < height)
+                    {
+                        if (!ColorMatch(bmp[currentPixel.X, i], _algorithmData.BorderColor))
+                        {
+                            if (!ColorMatch(bmp[currentPixel.X, i], replacementColor))
+                            {
+                                q.Enqueue(new QueueFloodFillDataPoint(currentPixel.X, i));
+                            }
+                        }
+                    }
                 }
             }
         }
