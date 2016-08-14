@@ -1,7 +1,7 @@
 ﻿
 namespace ColorMap.Management.ImagePreProcessing
 {
-    using ColorMap.Management.DataStructure;
+    using ColorMap.DataStructure.Management.ImagePreProcessing;
 
     /// <summary>
     /// 

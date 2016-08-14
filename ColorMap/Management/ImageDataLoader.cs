@@ -2,6 +2,7 @@
 namespace ColorMap.Management
 {
     using ColorMap.DataStructure;
+    using ColorMap.Management.ImagePreProcessing;
 
     /// <summary>
     /// 
@@ -9,6 +10,7 @@ namespace ColorMap.Management
     public class ImageDataLoader
     {
         private string _pathToString { get; set; }
+        private ImageContext _imageContext { get; set; }
 
         public ImageDataLoader(string pathToString)
         {
@@ -17,6 +19,11 @@ namespace ColorMap.Management
 
         public ProcessedImageData LoadImage()
         {
+
+
+
+
+
             return null;
         }
     }

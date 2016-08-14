@@ -1,6 +1,7 @@
 ﻿
 namespace ExampleGenerator
 {
+    using System;
     using System.Drawing;
 
     /// <summary>
@@ -8,6 +9,8 @@ namespace ExampleGenerator
     /// </summary>
     public class ExampleGenerator
     {
+        private string _pathForimageExport { get; set; }
+
         public static byte[,] StartingBlackWhite
         {
             get
@@ -95,53 +98,69 @@ namespace ExampleGenerator
             {"1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1",}
         };
 
+        public ExampleGenerator SetPath(string path)
+        {
+            _pathForimageExport = path;
+            return this;
+        }
+
+        /// <summary>
+        /// Simple method for test 
+        /// Method is shouldbe surrounded by a try/catch blok 
+        /// </summary>
         public void Run()
         {
-            int x = _pixelValues.GetUpperBound(0) + 1;
-            int y = _pixelValues.GetUpperBound(1) + 1;
-
-            Bitmap bmp = new Bitmap(x, y);
-            using (Graphics graph = Graphics.FromImage(bmp))
+            try
             {
-                Rectangle ImageSize = new Rectangle(0, 0, x, y);
-                graph.FillRectangle(Brushes.White, ImageSize);
-            }
+                int x = _pixelValues.GetUpperBound(0) + 1;
+                int y = _pixelValues.GetUpperBound(1) + 1;
 
-            for (int i = 0; i < x; i++)
-            {
-                for (int j = 0; j < y; j++)
+                Bitmap bmp = new Bitmap(x, y);
+                using (Graphics graph = Graphics.FromImage(bmp))
                 {
-                    if (_pixelValues[i, j] == "1")
-                        bmp.SetPixel(i, j, Color.Black);
-                    else
-                        bmp.SetPixel(i, j, Color.White);
+                    Rectangle ImageSize = new Rectangle(0, 0, x, y);
+                    graph.FillRectangle(Brushes.White, ImageSize);
                 }
-            }
 
-            bmp.Save("ex1.bmp");
-
-            x = _pixelValues1.GetUpperBound(0) + 1;
-            y = _pixelValues1.GetUpperBound(1) + 1;
-
-            bmp = new Bitmap(x, y);
-            using (Graphics graph = Graphics.FromImage(bmp))
-            {
-                Rectangle ImageSize = new Rectangle(0, 0, x, y);
-                graph.FillRectangle(Brushes.White, ImageSize);
-            }
-
-            for (int i = 0; i < x; i++)
-            {
-                for (int j = 0; j < y; j++)
+                for (int i = 0; i < x; i++)
                 {
-                    if (_pixelValues1[i, j] == "1")
-                        bmp.SetPixel(i, j, Color.Black);
-                    else
-                        bmp.SetPixel(i, j, Color.White);
+                    for (int j = 0; j < y; j++)
+                    {
+                        if (_pixelValues[i, j] == "1")
+                            bmp.SetPixel(i, j, Color.Black);
+                        else
+                            bmp.SetPixel(i, j, Color.White);
+                    }
                 }
-            }
 
-            bmp.Save("ex2.bmp");
+                bmp.Save(String.Format("{0}\\ex1.bmp", _pathForimageExport));
+
+                x = _pixelValues1.GetUpperBound(0) + 1;
+                y = _pixelValues1.GetUpperBound(1) + 1;
+
+                bmp = new Bitmap(x, y);
+                using (Graphics graph = Graphics.FromImage(bmp))
+                {
+                    Rectangle ImageSize = new Rectangle(0, 0, x, y);
+                    graph.FillRectangle(Brushes.White, ImageSize);
+                }
+
+                for (int i = 0; i < x; i++)
+                {
+                    for (int j = 0; j < y; j++)
+                    {
+                        if (_pixelValues1[i, j] == "1")
+                            bmp.SetPixel(i, j, Color.Black);
+                        else
+                            bmp.SetPixel(i, j, Color.White);
+                    }
+                }
+
+                bmp.Save(String.Format("{0}\\ex2.bmp", _pathForimageExport));
+            }
+            catch (Exception ex)
+            {
+            }
         }
     }
 }
