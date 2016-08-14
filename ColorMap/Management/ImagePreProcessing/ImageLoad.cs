@@ -7,7 +7,7 @@ namespace ColorMap.Management.ImagePreProcessing
     using System.IO;
 
     /// <summary>
-    /// 
+    /// Loads image 
     /// </summary>
     public class ImageLoad : ImagePreProcessAction
     {

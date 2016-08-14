@@ -22,5 +22,13 @@ namespace ColorMapTest.BasicTest
                 return String.Format("{0}\\", Context.TestDirectory);
             }
         }
+
+        public static void InvokeMethod<T>(string methodName)
+            where T : class, new()
+        {
+            T invokedClass = new T();
+            var method = invokedClass.GetType().GetMethod(methodName);
+            method.Invoke(invokedClass, new object[] { });
+        }
     }
 }
