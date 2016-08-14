@@ -79,9 +79,9 @@
         {
             // Arrange
             byte testColor = 0x5;
+            byte testBorder = 0x1;
 
             //Act
-            // start algoritm at those points 
             foreach (var startingPoint in inputTestObject.AlgorithmStartPoints)
             {
                 QueueFloodFillAlgorithm.SetData(new ColorMap.DataStructure.QueueFloodFillData()
@@ -92,14 +92,13 @@
                         X = startingPoint.X,
                         Y = startingPoint.Y
                     },
-                    ReplacementColor = testColor
+                    ReplacementColor = testColor,
+                    BorderColor = testBorder
                 });
-
                 QueueFloodFillAlgorithm.Run();
             }
 
             //Assert
-            // chect all points for correct modifications
             foreach (var pointToTest in inputTestObject.PointsToTest)
             {
                 Assert.AreEqual(testColor, inputTestObject.BlackWhiteImage[pointToTest.Y, pointToTest.X]);
