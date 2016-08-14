@@ -1,4 +1,4 @@
-﻿namespace ColorMapTest.TestDataStructure
+﻿namespace ColorMapTest.TestDataStructure.QueueFloodFill
 {
     using System.Collections.Generic;
 

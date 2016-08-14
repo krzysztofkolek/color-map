@@ -70,9 +70,9 @@
     <Compile Include="BasicTest\AlgorithmBase\FloodFill\QueueFloodFillBase.cs" />
     <Compile Include="BasicTest\BaseTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestDataStructure\QueueFloodFillData.cs" />
-    <Compile Include="TestDataStructure\QueueFloodFillListData.cs" />
-    <Compile Include="TestDataStructure\QueueFloodFillDataPoint.cs" />
+    <Compile Include="TestDataStructure\QueueFloodFill\QueueFloodFillData.cs" />
+    <Compile Include="TestDataStructure\QueueFloodFill\QueueFloodFillListData.cs" />
+    <Compile Include="TestDataStructure\QueueFloodFill\QueueFloodFillDataPoint.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ColorMap\ColorMap.csproj">

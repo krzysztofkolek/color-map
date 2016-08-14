@@ -3,6 +3,7 @@ namespace ColorMapTest.BasicTest.AlgorithmBase.FloodFill
 {
     using ColorMap.Algorithm.FloodFill;
     using ColorMapTest.TestDataStructure;
+    using ColorMapTest.TestDataStructure.QueueFloodFill;
     using ExampleGenerator;
     using System.Collections.Generic;
 

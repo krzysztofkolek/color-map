@@ -1,5 +1,5 @@
 ﻿
-namespace ColorMapTest.TestDataStructure
+namespace ColorMapTest.TestDataStructure.QueueFloodFill
 {
     public class QueueFloodFillDataPoint
     {

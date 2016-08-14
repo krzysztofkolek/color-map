@@ -2,6 +2,7 @@
 {
     using ColorMapTest.BasicTest.AlgorithmBase.FloodFill;
     using ColorMapTest.TestDataStructure;
+    using ColorMapTest.TestDataStructure.QueueFloodFill;
     using NUnit.Framework;
 
     /// <summary>
