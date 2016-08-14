@@ -2,20 +2,32 @@
 namespace ColorMap.Management.ImagePreProcessing
 {
     using ColorMap.DataStructure.Management.ImagePreProcessing;
+    using Emgu.CV;
+    using Emgu.CV.Structure;
+    using System.Drawing;
 
     /// <summary>
     /// Transforms image to a black and white image 
     /// </summary>
     public class ImageTransform : ImagePreProcessAction
     {
-        public override ImagePreProcessingData Run()
+        private Image _data { get; set; }
+
+        public ImageTransform SetImage(Image image)
         {
-            throw new System.NotImplementedException();
+            _data = image;
+            return this;
         }
 
-        public void SetImage(System.Drawing.Image image)
+        public override ImagePreProcessingData Run()
         {
-            throw new System.NotImplementedException();
+            var grayImage = new Image<Bgr, byte>(_data as Bitmap);
+
+
+
+
+            return null;
         }
+
     }
 }
