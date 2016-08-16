@@ -1,6 +1,7 @@
 ﻿
 namespace ColorMapTest.Management.ImagePreProcessing
 {
+    using ColorMap.DataStructure.Management.ImagePreProcessing;
     using ColorMapTest.BasicTest.AlgorithmBase.Management.ImagePreProcessing;
     using ColorMapTest.TestDataStructure.Management.ImagePreProcessing;
     using NUnit.Framework;
@@ -13,10 +14,14 @@ namespace ColorMapTest.Management.ImagePreProcessing
         public void TransformImage(ImageTransformData input)
         {
             // Arrange
-            ImageTransformAlgorithm.SetImage(input.InputImage);
+            var inputToObject = new ImagePreProcessingData()
+            {
+                Raw = input.InputImage
+            };
+            ImageTransformAlgorithm.SetImage(inputToObject);
 
             // Act
-            var output = ImageTransformAlgorithm.Run().RawTransfomed;
+            var output = ImageTransformAlgorithm.Run().BlackAndWhite;
 
             // Assert
             for (int i = 0; i < output.GetLength(1); i++)
