@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EmguCV.3.1.0.1\build\EmguCV.props" Condition="Exists('..\packages\EmguCV.3.1.0.1\build\EmguCV.props')" />
   <Import Project="..\packages\VVVV.EmguCV.2.4.2.1\build\net40\VVVV.EmguCV.props" Condition="Exists('..\packages\VVVV.EmguCV.2.4.2.1\build\net40\VVVV.EmguCV.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -37,39 +38,38 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Emgu.CV, Version=2.4.10.1939, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
-      <Private>True</Private>
+    <Reference Include="Emgu.CV">
       <HintPath>..\packages\VDK.EmguCV.x64.2.4.10.1\lib\net40\Emgu.CV.dll</HintPath>
     </Reference>
-    <Reference Include="Emgu.CV.GPU, Version=2.4.10.1939, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
-      <Private>True</Private>
+    <Reference Include="Emgu.CV.GPU">
       <HintPath>..\packages\VDK.EmguCV.x64.2.4.10.1\lib\net40\Emgu.CV.GPU.dll</HintPath>
     </Reference>
-    <Reference Include="Emgu.CV.ML, Version=2.4.10.1939, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
-      <Private>True</Private>
+    <Reference Include="Emgu.CV.ML">
       <HintPath>..\packages\VDK.EmguCV.x64.2.4.10.1\lib\net40\Emgu.CV.ML.dll</HintPath>
     </Reference>
-    <Reference Include="Emgu.CV.OCR, Version=2.4.10.1939, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
-      <Private>True</Private>
+    <Reference Include="Emgu.CV.OCR">
       <HintPath>..\packages\VDK.EmguCV.x64.2.4.10.1\lib\net40\Emgu.CV.OCR.dll</HintPath>
     </Reference>
     <Reference Include="Emgu.CV.OpenCL">
       <HintPath>..\packages\VDK.EmguCV.x64.2.4.10.1\lib\net40\Emgu.CV.OpenCL.dll</HintPath>
     </Reference>
-    <Reference Include="Emgu.CV.Stitching, Version=2.4.10.1939, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
-      <Private>True</Private>
+    <Reference Include="Emgu.CV.Stitching">
       <HintPath>..\packages\VDK.EmguCV.x64.2.4.10.1\lib\net40\Emgu.CV.Stitching.dll</HintPath>
     </Reference>
-    <Reference Include="Emgu.CV.UI, Version=2.4.10.1939, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\VDK.EmguCV.x64.2.4.10.1\lib\net40\Emgu.CV.UI.dll</HintPath>
+    <Reference Include="Emgu.CV.UI, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Emgu.CV.VideoStab, Version=2.4.10.1939, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
-      <Private>True</Private>
+    <Reference Include="Emgu.CV.UI.GL">
+      <HintPath>..\packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.UI.GL.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.VideoStab">
       <HintPath>..\packages\VDK.EmguCV.x64.2.4.10.1\lib\net40\Emgu.CV.VideoStab.dll</HintPath>
     </Reference>
-    <Reference Include="Emgu.Util, Version=2.4.10.1939, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
-      <Private>True</Private>
+    <Reference Include="Emgu.CV.World">
+      <HintPath>..\packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.World.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.Util">
       <HintPath>..\packages\VDK.EmguCV.x64.2.4.10.1\lib\net40\Emgu.Util.dll</HintPath>
     </Reference>
     <Reference Include="nunit.core">
@@ -92,8 +92,17 @@
       <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\NUnit.VisualStudio.TestAdapter.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="OpenTK">
+      <HintPath>..\packages\OpenTK.1.1.2349.61993\lib\NET40\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl">
+      <HintPath>..\packages\OpenTK.GLControl.1.1.2349.61993\lib\NET40\OpenTK.GLControl.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
+    <Reference Include="ZedGraph">
+      <HintPath>..\packages\ZedGraph.5.1.7\lib\net35-Client\ZedGraph.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -143,72 +152,7 @@
     <None Include="tessdata\eng.traineddata" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EmguCVStaticFiles\cublas64_42_9.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EmguCVStaticFiles\cudart64_42_9.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EmguCVStaticFiles\cufft64_42_9.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EmguCVStaticFiles\cvextern.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EmguCVStaticFiles\npp64_42_9.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EmguCVStaticFiles\opencv_calib3d242.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EmguCVStaticFiles\opencv_contrib242.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EmguCVStaticFiles\opencv_core242.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EmguCVStaticFiles\opencv_features2d242.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EmguCVStaticFiles\opencv_ffmpeg242_64.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EmguCVStaticFiles\opencv_flann242.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EmguCVStaticFiles\opencv_gpu242.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EmguCVStaticFiles\opencv_highgui242.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EmguCVStaticFiles\opencv_imgproc242.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EmguCVStaticFiles\opencv_legacy242.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EmguCVStaticFiles\opencv_ml242.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EmguCVStaticFiles\opencv_nonfree242.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EmguCVStaticFiles\opencv_objdetect242.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EmguCVStaticFiles\opencv_photo242.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EmguCVStaticFiles\opencv_stitching242.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EmguCVStaticFiles\opencv_video242.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EmguCVStaticFiles\opencv_videostab242.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="License-LGPL.txt" />
     <Content Include="x64\cudart64_65.dll" />
     <Content Include="x64\cufft64_65.dll" />
     <Content Include="x64\cvextern.dll" />
@@ -255,6 +199,7 @@
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\VVVV.EmguCV.2.4.2.1\build\net40\VVVV.EmguCV.targets" Condition="Exists('..\packages\VVVV.EmguCV.2.4.2.1\build\net40\VVVV.EmguCV.targets')" />
+  <Import Project="..\packages\EmguCV.3.1.0.1\build\EmguCV.targets" Condition="Exists('..\packages\EmguCV.3.1.0.1\build\EmguCV.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
