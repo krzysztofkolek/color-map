@@ -4,7 +4,22 @@
 
     public class Graph<T>
     {
-        List<Vertex<T>> vertices;
-        bool[][] edges;
+        private List<Vertex<T>> _vertices { get; set; }
+        private bool[][] _edges;
+
+        public Graph()
+        {
+
+        }
+
+        public Graph(bool[][] edges)
+        {
+            _edges = edges;
+        }
+
+        public Graph<T> Build()
+        {
+
+        }
     }
 }
