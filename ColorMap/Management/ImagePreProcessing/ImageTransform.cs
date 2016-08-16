@@ -21,10 +21,9 @@ namespace ColorMap.Management.ImagePreProcessing
 
         public override ImagePreProcessingData Run()
         {
-            var grayImage = new Image<Bgr, byte>(_data as Bitmap);
-
-
-
+            //var grayImage = new Image<Bgr, byte>(_data as Bitmap);
+            Image<Gray, byte> grayFrame1 = new Image<Gray, byte>(new Size(1, 2));
+            Image<Gray, byte> grayFrame = new Image<Gray, byte>(new Bitmap(@"D:\MyProjects\ColorMap\ColorMapTest\bin\Debug\ex2.bmp"));
 
             return null;
         }
