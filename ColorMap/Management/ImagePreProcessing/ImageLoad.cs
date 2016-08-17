@@ -43,7 +43,7 @@ namespace ColorMap.Management.ImagePreProcessing
                 };
             }
 
-            return null;
+            return new ImagePreProcessingData();
         }
     }
 }

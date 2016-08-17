@@ -113,7 +113,9 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Algorithm\CreateGraphFromArray\GraphFromArrayAlgorithmUnitTest.cs" />
     <Compile Include="Algorithm\FloodFill\QueueFloodFillUnitTest.cs" />
+    <Compile Include="BasicTest\AlgorithmBase\CreateGraphFromArray\GraphFromArrayAlgorithmBase.cs" />
     <Compile Include="BasicTest\AlgorithmBase\FloodFill\QueueFloodFillBase.cs" />
     <Compile Include="BasicTest\AlgorithmBase\Management\ImagePreProcessing\BaseImageLoad.cs" />
     <Compile Include="BasicTest\AlgorithmBase\Management\ImagePreProcessing\BaseImageTransform.cs" />
