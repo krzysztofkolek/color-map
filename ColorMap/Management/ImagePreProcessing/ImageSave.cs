@@ -7,21 +7,21 @@
     {
         public void SaveChanges(ProcessedImageData _data, string pathWithFile)
         {
-            Image loadedImage = new Bitmap(_data.Image);
+            Image loadedImage = _data.Image;
             Bitmap bitmapImage = (loadedImage as Bitmap);
             for (int i = 0; i < bitmapImage.Height; i++)
             {
                 for (int j = 0; j < bitmapImage.Width; j++)
                 {
-                    if (!_data.PreColoredImage[i, j].Equals("1"))
+                    if (!_data.PreColoredImage[j, i].Equals("1") && !_data.PreColoredImage[j, i].Equals("0"))
                     {
-                        var letter = _data.PreColoredImage[i, j];
+                        var letter = _data.PreColoredImage[j, i];
                         var color = _data.ListOfLettersAndCorespondingColors[letter];
-                        bitmapImage.SetPixel(j, i, color);
+                        bitmapImage.SetPixel(j,i, color);
                     }
                     else
                     {
-                        bitmapImage.SetPixel(j, i, Color.Black);
+                        bitmapImage.SetPixel(j,i, Color.Black);
                     }                   
                 }
             }

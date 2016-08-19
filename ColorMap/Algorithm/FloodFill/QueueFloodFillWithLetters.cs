@@ -31,8 +31,8 @@
 
         public override Algorithm Run()
         {
-            int y = _algorithmData.Image.GetLength(1),
-                x = _algorithmData.Image.GetLength(0);
+            int y = _algorithmData.Image.GetLength(0),
+                x = _algorithmData.Image.GetLength(1);
 
             for (int i = 0; i < y; i++)
             {
