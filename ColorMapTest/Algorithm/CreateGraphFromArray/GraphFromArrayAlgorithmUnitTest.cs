@@ -18,7 +18,8 @@
             //Act 
             GraphFromArrayAlgorithm.SetData(new ColorMap.DataStructure.Graph.GraphData()
             {
-                InputMatrix = input.Input
+                InputMatrix = input.Input,
+                InputPoints = input.InputPoints
             });
             var output = GraphFromArrayAlgorithm.Run().GetData().ListOfSiblingRegions;
 

@@ -61,6 +61,8 @@
                                 {
                                     _algorithmData.ImageForLetterFill[item.Y, item.X] = letter;
                                 }
+
+                                _data.LetterFilledRegions.Add(letter, temp.ToList());
                             }
                         }
                     }
@@ -78,8 +80,8 @@
             _filedToFill = new Queue<QueueFloodFillDataPoint>();
             _filedToFill.Enqueue(pt);
 
-
-            while (_filedToFill.Count > 0 && _failedCounter < 350)
+            int maxIterationCount = 350;
+            while (_filedToFill.Count > 0 && _failedCounter < maxIterationCount)
             {
                 QueueFloodFillDataPoint currentPixel = _filedToFill.Dequeue();
 
