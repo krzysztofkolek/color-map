@@ -10,6 +10,6 @@
         public string Path { get; set; }
         public byte[,] RawImage { get; set; }
         public byte[,] BlackWhiteImage { get; set; }
-        public Graph<byte> ReadyGraph { get; set; }
+        public string[,] PreColoredImage { get; set; }
     }
 }

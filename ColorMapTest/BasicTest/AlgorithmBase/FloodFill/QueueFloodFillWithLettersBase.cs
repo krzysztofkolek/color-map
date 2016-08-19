@@ -1,26 +1,31 @@
-﻿namespace ColorMapTest.BasicTest.AlgorithmBase.CreateGraphFromArray
+﻿namespace ColorMapTest.BasicTest.AlgorithmBase.FloodFill
 {
-    using ColorMap.DataStructure.Graph;
-    using ColorMapTest.TestDataStructure.GraphFromArray;
+    using ColorMap.Algorithm.FloodFill;
     using System.Collections.Generic;
     using ExampleGenerator;
+    using TestDataStructure.QueueFloodFill;
 
-    public class GraphFromArrayAlgorithmBase : BaseTest
+    public class QueueFloodFillWithLettersBase : BaseTest
     {
-        //protected Graph<byte> Algorithm { get; set; }
-
-        public GraphFromArrayAlgorithmBase()
-        {
-            //Algorithm = new Graph<byte>();
-        }
-
-        public static IEnumerable<TestDataStructure.GraphFromArray.GraphFromArrayData> CreateGraphFromArrayData
+        private QueueFloodFillWithLetters _queueFloodFillAlgorithm;
+        protected QueueFloodFillWithLetters QueueFloodFillAlgorithm
         {
             get
             {
-                yield return new TestDataStructure.GraphFromArray.GraphFromArrayData()
+                if (_queueFloodFillAlgorithm == null)
                 {
-                    
+                    _queueFloodFillAlgorithm = new QueueFloodFillWithLetters();
+                }
+                return _queueFloodFillAlgorithm;
+            }
+        }
+
+        public static IEnumerable<QueueFloodFillWithLettersData> QueueFloodFillWithLetters
+        {
+            get
+            {
+                yield return new QueueFloodFillWithLettersData()
+                {
                     Input = ExampleGenerator.FirstBlackWhiteString,
                     Expected = new string[,]
                     {
@@ -35,7 +40,9 @@
                         {"1","E","E","1","1","1","G","1","H","H","1"},
                         {"1","E","E","E","E","1","G","1","H","H","1"},
                         {"1","1","1","1","1","1","1","1","1","1","1"}
-                    }                    
+                    },
+                    BorderColor = 1,
+                    Image = ExampleGenerator.FirstBlackWhite
                 };
             }
         }

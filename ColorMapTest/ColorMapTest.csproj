@@ -115,8 +115,10 @@
   <ItemGroup>
     <Compile Include="Algorithm\CreateGraphFromArray\GraphFromArrayAlgorithmUnitTest.cs" />
     <Compile Include="Algorithm\FloodFill\QueueFloodFillUnitTest.cs" />
+    <Compile Include="Algorithm\FloodFill\QueueFloodFillWithLettersUnitTest.cs" />
     <Compile Include="BasicTest\AlgorithmBase\CreateGraphFromArray\GraphFromArrayAlgorithmBase.cs" />
     <Compile Include="BasicTest\AlgorithmBase\FloodFill\QueueFloodFillBase.cs" />
+    <Compile Include="BasicTest\AlgorithmBase\FloodFill\QueueFloodFillWithLettersBase.cs" />
     <Compile Include="BasicTest\AlgorithmBase\Management\ImagePreProcessing\BaseImageLoad.cs" />
     <Compile Include="BasicTest\AlgorithmBase\Management\ImagePreProcessing\BaseImageTransform.cs" />
     <Compile Include="BasicTest\BaseTest.cs" />
@@ -124,11 +126,13 @@
     <Compile Include="Management\ImagePreProcessing\ImageLoadUnitTest.cs" />
     <Compile Include="Management\ImagePreProcessing\ImageTransformUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestDataStructure\GraphFromArray\GraphFromArrayData.cs" />
     <Compile Include="TestDataStructure\Management\ImagePreProcessing\ImageLoadData.cs" />
     <Compile Include="TestDataStructure\Management\ImagePreProcessing\ImageTransformData.cs" />
     <Compile Include="TestDataStructure\QueueFloodFill\QueueFloodFillData.cs" />
     <Compile Include="TestDataStructure\QueueFloodFill\QueueFloodFillListData.cs" />
     <Compile Include="TestDataStructure\QueueFloodFill\QueueFloodFillDataPoint.cs" />
+    <Compile Include="TestDataStructure\QueueFloodFill\QueueFloodFillWithLettersData.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ColorMap\ColorMap.csproj">

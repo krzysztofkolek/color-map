@@ -72,8 +72,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithm\Algorithm.cs" />
+    <Compile Include="Algorithm\CreateGraphFromArray\GraphFromArrayAlgorithm.cs" />
+    <Compile Include="Algorithm\FloodFill\QueueFloodFillWithLetters.cs" />
     <Compile Include="DataStructure\FloodFill\QueueFloodFillData.cs" />
     <Compile Include="DataStructure\FloodFill\QueueFloodFillDataPoint.cs" />
+    <Compile Include="DataStructure\FloodFill\QueueFloodFillWithLettersData.cs" />
     <Compile Include="DataStructure\Graph\Edge.cs" />
     <Compile Include="DataStructure\Graph\Graph.cs" />
     <Compile Include="DataStructure\Graph\GraphFromArrayData.cs" />
