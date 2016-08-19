@@ -75,6 +75,7 @@
     <Compile Include="Algorithm\ColorAccordingToList\ColorAccordingToListAlgorithm.cs" />
     <Compile Include="Algorithm\CreateGraphFromArray\GraphFromArrayAlgorithm.cs" />
     <Compile Include="Algorithm\FloodFill\QueueFloodFillWithLetters.cs" />
+    <Compile Include="DataStructure\ColorAccordingToList\ColorAccordingToListData.cs" />
     <Compile Include="DataStructure\FloodFill\QueueFloodFillData.cs" />
     <Compile Include="DataStructure\FloodFill\QueueFloodFillDataPoint.cs" />
     <Compile Include="DataStructure\FloodFill\QueueFloodFillWithLettersData.cs" />

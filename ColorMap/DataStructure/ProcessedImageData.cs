@@ -2,6 +2,7 @@
 {
     using ColorMap.DataStructure.Graph;
     using System.Collections.Generic;
+    using System.Drawing;
 
     /// <summary>
     /// Output object for the whole process
@@ -14,5 +15,6 @@
         public string[,] PreColoredImage { get; set; }
         public Dictionary<string, List<QueueFloodFillDataPoint>> LetterFilledRegions { get; set; }
         public Dictionary<string,List<string>> ListOfSiblingRegions { get; set; }
+        public Dictionary<string, Color> ListOfLettersAndCorespondingColors { get; set; }
     }
 }
