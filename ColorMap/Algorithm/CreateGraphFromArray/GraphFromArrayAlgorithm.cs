@@ -3,19 +3,35 @@
     using ColorMap.DataStructure.Graph;
     using System;
 
+     
 
     public class GraphFromArrayAlgorithm : Algorithm
     {
-        private GraphFromArrayData _data { get; set; }
+        private GraphData _inputData { get; set; }
 
-        public GraphFromArrayAlgorithm(GraphFromArrayData input)
+        public GraphFromArrayAlgorithm()
         {
-            _data = input;
         }
+
+        public GraphFromArrayAlgorithm(GraphData input)
+        {
+            _inputData = input;
+        }
+
+        public GraphFromArrayAlgorithm SetData(GraphData input)
+        {
+            _inputData = input;
+            return this;
+        }
+
+
+
 
         public override Algorithm Run()
         {
-            throw new NotImplementedException();
+
+            return this;
         }
     }
+
 }

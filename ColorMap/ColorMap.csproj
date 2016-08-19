@@ -77,12 +77,7 @@
     <Compile Include="DataStructure\FloodFill\QueueFloodFillData.cs" />
     <Compile Include="DataStructure\FloodFill\QueueFloodFillDataPoint.cs" />
     <Compile Include="DataStructure\FloodFill\QueueFloodFillWithLettersData.cs" />
-    <Compile Include="DataStructure\Graph\Edge.cs" />
-    <Compile Include="DataStructure\Graph\Graph.cs" />
-    <Compile Include="DataStructure\Graph\GraphFromArrayData.cs" />
-    <Compile Include="DataStructure\Graph\GraphMapElement.cs" />
-    <Compile Include="DataStructure\Graph\GraphMapPoint.cs" />
-    <Compile Include="DataStructure\Graph\Vertex.cs" />
+    <Compile Include="DataStructure\Graph\GraphData.cs" />
     <Compile Include="Management\ImageDataLoader.cs" />
     <Compile Include="DataStructure\ProcessedImageData.cs" />
     <Compile Include="Algorithm\FloodFill\QueueFloodFill.cs" />
