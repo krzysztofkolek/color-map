@@ -113,9 +113,11 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Algorithm\ColorAccordingToList\ColorAccordingToListAlgorithmUnitTest.cs" />
     <Compile Include="Algorithm\CreateGraphFromArray\GraphFromArrayAlgorithmUnitTest.cs" />
     <Compile Include="Algorithm\FloodFill\QueueFloodFillUnitTest.cs" />
     <Compile Include="Algorithm\FloodFill\QueueFloodFillWithLettersUnitTest.cs" />
+    <Compile Include="BasicTest\AlgorithmBase\ColorAccordingToList\ColorAccordingToListAlgorithmBase.cs" />
     <Compile Include="BasicTest\AlgorithmBase\CreateGraphFromArray\GraphFromArrayAlgorithmBase.cs" />
     <Compile Include="BasicTest\AlgorithmBase\FloodFill\QueueFloodFillBase.cs" />
     <Compile Include="BasicTest\AlgorithmBase\FloodFill\QueueFloodFillWithLettersBase.cs" />
@@ -126,6 +128,7 @@
     <Compile Include="Management\ImagePreProcessing\ImageLoadUnitTest.cs" />
     <Compile Include="Management\ImagePreProcessing\ImageTransformUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestDataStructure\ColorAccordingToList\ColorAccordingToListData.cs" />
     <Compile Include="TestDataStructure\GraphFromArray\GraphFromArrayData.cs" />
     <Compile Include="TestDataStructure\Management\ImagePreProcessing\ImageLoadData.cs" />
     <Compile Include="TestDataStructure\Management\ImagePreProcessing\ImageTransformData.cs" />
