@@ -10,6 +10,7 @@
     public class ProcessedImageData
     {
         public string Path { get; set; }
+        public Image Image { get; set; }
         public byte[,] RawImage { get; set; }
         public byte[,] BlackWhiteImage { get; set; }
         public string[,] PreColoredImage { get; set; }

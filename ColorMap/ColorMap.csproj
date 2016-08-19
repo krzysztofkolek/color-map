@@ -88,6 +88,7 @@
     <Compile Include="Management\ImagePreProcessing\ImageLoad.cs" />
     <Compile Include="Management\ImagePreProcessing\ImagePreProcessAction.cs" />
     <Compile Include="DataStructure\Management\ImagePreProcessing\ImagePreProcessingData.cs" />
+    <Compile Include="Management\ImagePreProcessing\ImageSave.cs" />
     <Compile Include="Management\ImagePreProcessing\ImageTransform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

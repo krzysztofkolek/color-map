@@ -18,7 +18,7 @@
             // Assert
             foreach (var expectedItem in input.Expected)
             {
-                var outputValue = output.ListOfLettersAndCorespondingColors[expectedItem.Key];
+                var outputValue = output.GetData().ListOfLettersAndCorespondingColors[expectedItem.Key];
 
                 Assert.AreEqual(expectedItem.Value, outputValue);
             }
