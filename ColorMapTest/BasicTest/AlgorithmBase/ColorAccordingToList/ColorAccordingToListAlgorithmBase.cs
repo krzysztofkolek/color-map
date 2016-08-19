@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using TestDataStructure.ColorAccordingToList;
 
-    public class ColorAccordingToListAlgorithmBase
+    public class ColorAccordingToListAlgorithmBase : BaseTest
     {
         protected ColorAccordingToListAlgorithm Algorithm { get; set; }
 

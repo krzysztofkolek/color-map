@@ -12,5 +12,6 @@ namespace ColorMap.DataStructure.Management.ImagePreProcessing
         public Image Raw { get; set; }
         public int[,] RawTransfomed { get; set; }
         public byte[,] BlackAndWhite { get; set; }
+        public string[,] ImageForLetterFill { get; set; }
     }
 }

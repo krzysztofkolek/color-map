@@ -23,6 +23,7 @@ namespace ColorMap.Management.ImagePreProcessing
         {
             CreateBlackAndWhite();
             RotateArray();
+            CopyOutputData();
 
             return _data;
         }
@@ -41,7 +42,7 @@ namespace ColorMap.Management.ImagePreProcessing
             {
                 for (int j = 0; j < x; j++)
                 {
-                    var actuallVal = ((byte[, ,])(grayImage.ManagedArray))[i, j, 0];
+                    var actuallVal = ((byte[,,])(grayImage.ManagedArray))[i, j, 0];
                     if (actuallVal.Equals(255))
                     {
                         _data.BlackAndWhite[i, j] = 0;
@@ -103,6 +104,21 @@ namespace ColorMap.Management.ImagePreProcessing
             T temp = matrix[r1, c1];
             matrix[r1, c1] = matrix[r2, c2];
             matrix[r2, c2] = temp;
+        }
+
+        private void CopyOutputData()
+        {
+            int y = _data.BlackAndWhite.GetLength(0),
+                x = _data.BlackAndWhite.GetLength(1);
+
+            _data.ImageForLetterFill = new string[y, x];
+            for (int i = 0; i < y; i++)
+            {
+                for (int j = 0; j < x; j++)
+                {
+                    _data.ImageForLetterFill[i, j] = _data.BlackAndWhite[i, j].ToString();
+                }
+            }
         }
     }
 }

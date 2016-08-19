@@ -124,12 +124,15 @@
     <Compile Include="BasicTest\AlgorithmBase\Management\ImagePreProcessing\BaseImageLoad.cs" />
     <Compile Include="BasicTest\AlgorithmBase\Management\ImagePreProcessing\BaseImageTransform.cs" />
     <Compile Include="BasicTest\BaseTest.cs" />
+    <Compile Include="BasicTest\Main\ColorMapProcessBase.cs" />
+    <Compile Include="Main\ColorMapProcessUnitTest.cs" />
     <Compile Include="Management\ImageDataLoaderUnitTest.cs" />
     <Compile Include="Management\ImagePreProcessing\ImageLoadUnitTest.cs" />
     <Compile Include="Management\ImagePreProcessing\ImageTransformUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestDataStructure\ColorAccordingToList\ColorAccordingToListData.cs" />
     <Compile Include="TestDataStructure\GraphFromArray\GraphFromArrayData.cs" />
+    <Compile Include="TestDataStructure\Main\ColorMapProcessData.cs" />
     <Compile Include="TestDataStructure\Management\ImagePreProcessing\ImageLoadData.cs" />
     <Compile Include="TestDataStructure\Management\ImagePreProcessing\ImageTransformData.cs" />
     <Compile Include="TestDataStructure\QueueFloodFill\QueueFloodFillData.cs" />
