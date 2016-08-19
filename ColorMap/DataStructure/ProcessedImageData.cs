@@ -1,6 +1,7 @@
 ﻿namespace ColorMap.DataStructure
 {
     using ColorMap.DataStructure.Graph;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Output object for the whole process
@@ -11,5 +12,6 @@
         public byte[,] RawImage { get; set; }
         public byte[,] BlackWhiteImage { get; set; }
         public string[,] PreColoredImage { get; set; }
+        public Dictionary<string,List<string>> ListOfSiblingRegions { get; set; }
     }
 }

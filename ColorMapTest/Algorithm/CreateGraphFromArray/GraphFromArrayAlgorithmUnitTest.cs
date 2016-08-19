@@ -15,30 +15,26 @@
         {
             // Arrange
 
-
             //Act 
-            //QueueFloodFillAlgorithm.SetData(new ColorMap.DataStructure.FloodFill.QueueFloodFillData()
-            //{
-            //    Image = inputTestObject.BlackWhiteImage,
-            //    AlgorithmStartPoint = new ColorMap.DataStructure.QueueFloodFillDataPoint()
-            //    {
-            //        X = inputTestObject.AlgorithmStartPoint.X,
-            //        Y = inputTestObject.AlgorithmStartPoint.Y
-            //    },
-            //    ReplacementColor = testColor,
-            //    BorderColor = testBorder
-            //});
-            //QueueFloodFillAlgorithm.Run();
+            GraphFromArrayAlgorithm.SetData(new ColorMap.DataStructure.Graph.GraphData()
+            {
+                InputMatrix = input.Input
+            });
+            var output = GraphFromArrayAlgorithm.Run().GetData().ListOfSiblingRegions;
 
 
             //Assert
-            //foreach (var pointForTest in inputTestObject.PointToTest)
-            //{
-            //    Assert.AreEqual(testColor, inputTestObject.BlackWhiteImage[pointForTest.Y, pointForTest.X]);
+            foreach (var expectedItem in input.Expected)
+            {
+                var outputList = output[expectedItem.Key];
 
-            //}
+                Assert.AreEqual(outputList.Count, expectedItem.Value.Count);
 
-            Assert.NotNull(null);
+                foreach (var expectedListItem in expectedItem.Value)
+                {
+                    Assert.AreEqual(true, outputList.Contains(expectedListItem));
+                }
+            }
         }
     }
 }

@@ -2,9 +2,6 @@
 {
     using ColorMap.DataStructure.Graph;
     using System;
-
-     
-
     public class GraphFromArrayAlgorithm : Algorithm
     {
         private GraphData _inputData { get; set; }
