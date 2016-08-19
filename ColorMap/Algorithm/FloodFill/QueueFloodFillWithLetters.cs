@@ -30,7 +30,7 @@
         public override Algorithm Run()
         {
             int y = _algorithmData.Image.GetLength(1),
-                x = _algorithmData.Image.GetLength(0);
+                x = _algorithmData.Image.GetLength(0);           
 
             for (int i = 0; i < y; i++)
             {
@@ -46,23 +46,24 @@
                             _alphabet.RemoveAt(0);
                             if (!_userdAlphabet.Contains(element))
                             {
-                                Print();
-                                FloodFill(_algorithmData.ImageForLetterFill, new QueueFloodFillDataPoint(j, i), letter);
-                                Print();
+                                // Init
+                                temp = new Queue<QueueFloodFillDataPoint>();
+                                _filedToFill = new Queue<QueueFloodFillDataPoint>();
+                                _failedCounter = 0;
+
+                                // Get the filed to color
+                                FloodFillCheckIfEmpty(_algorithmData.ImageForLetterFill, new QueueFloodFillDataPoint(j, i), "0");
+
+                                // Color the filed 
+                                foreach (var item in temp)
+                                {
+                                    _algorithmData.ImageForLetterFill[item.Y, item.X] = letter;
+                                }                                
                             }
                         }
                     }
                 }
             }
-
-            //_data.PreColoredImage = new string[y, x];
-            //_data.PreColoredImage = _algorithmData.ImageForLetterFill;
-
-
-           
-
-
-
 
             return this;
         }
@@ -93,11 +94,167 @@
             return a.Equals(b);
         }
 
+        Queue<QueueFloodFillDataPoint> temp = new Queue<QueueFloodFillDataPoint>();
+        private Queue<QueueFloodFillDataPoint> _filedToFill = new Queue<QueueFloodFillDataPoint>();
+        private void FloodFillCheckIfEmpty(string[,] bmp, QueueFloodFillDataPoint pt, string targetLetter)
+        {
+            int height = bmp.GetLength(1),
+                   width = bmp.GetLength(0);
+            _filedToFill = new Queue<QueueFloodFillDataPoint>();
+            _filedToFill.Enqueue(pt);
+
+
+            while (_filedToFill.Count > 0 && _failedCounter < 350)
+            {
+                QueueFloodFillDataPoint currentPixel = _filedToFill.Dequeue();
+
+
+                if (currentPixel.X < width && currentPixel.Y < height)
+                {
+                    var value = bmp[currentPixel.Y, currentPixel.X];
+
+                    if (value.Equals(targetLetter))
+                    {
+                        var isFirstItemPresentInQueue = _filedToFill.Where(queueItem => queueItem.X == pt.X && queueItem.Y == pt.Y).FirstOrDefault();
+                        if (isFirstItemPresentInQueue == null)
+                        {
+                            _filedToFill.Enqueue(pt);
+                        }
+
+                        // Right
+                        QueueFloodFillDataPoint pixel = new QueueFloodFillDataPoint()
+                        {
+                            X = currentPixel.X + 1,
+                            Y = currentPixel.Y
+                        };
+
+                        if (CheckIfEmpty(bmp, pixel, targetLetter))
+                        {
+                            _filedToFill.Enqueue(pixel);
+                        }
+
+                        // Down
+                        pixel = new QueueFloodFillDataPoint()
+                        {
+                            X = currentPixel.X,
+                            Y = currentPixel.Y + 1
+                        };
+
+                        if (CheckIfEmpty(bmp, pixel, targetLetter))
+                        {
+                            _filedToFill.Enqueue(pixel);
+                        }
+
+                        // Right Down
+                        pixel = new QueueFloodFillDataPoint()
+                        {
+                            X = currentPixel.X + 1,
+                            Y = currentPixel.Y + 1
+                        };
+
+                        if (CheckIfEmpty(bmp, pixel, targetLetter))
+                        {
+                            _filedToFill.Enqueue(pixel);
+                        }
+
+                        // Left
+                        pixel = new QueueFloodFillDataPoint()
+                        {
+                            X = currentPixel.X - 1,
+                            Y = currentPixel.Y
+                        };
+
+                        // Left Down
+                        pixel = new QueueFloodFillDataPoint()
+                        {
+                            X = currentPixel.X - 1,
+                            Y = currentPixel.Y + 1
+                        };
+
+                        if (CheckIfEmpty(bmp, pixel, targetLetter))
+                        {
+                            _filedToFill.Enqueue(pixel);
+                        }
+
+                        if (CheckIfEmpty(bmp, pixel, targetLetter))
+                        {
+                            _filedToFill.Enqueue(pixel);
+                        }
+
+                        // Up
+                        pixel = new QueueFloodFillDataPoint()
+                        {
+                            X = currentPixel.X,
+                            Y = currentPixel.Y - 1
+                        };
+
+                        if (CheckIfEmpty(bmp, pixel, targetLetter))
+                        {
+                            _filedToFill.Enqueue(pixel);
+                        }
+
+                        // Right Up
+                        pixel = new QueueFloodFillDataPoint()
+                        {
+                            X = currentPixel.X + 1,
+                            Y = currentPixel.Y - 1
+                        };
+
+                        if (CheckIfEmpty(bmp, pixel, targetLetter))
+                        {
+                            _filedToFill.Enqueue(pixel);
+                        }
+
+
+
+                        // Left Up
+                        pixel = new QueueFloodFillDataPoint()
+                        {
+                            X = currentPixel.X - 1,
+                            Y = currentPixel.Y - 1
+                        };
+
+                        if (CheckIfEmpty(bmp, pixel, targetLetter))
+                        {
+                            _filedToFill.Enqueue(pixel);
+                        }
+
+                        foreach (var item in _filedToFill)
+                        {
+                            var isItemPresentInTempQueue = temp.Where(queueItem => queueItem.X == item.X && queueItem.Y == item.Y).FirstOrDefault();
+                            if (isItemPresentInTempQueue == null)
+                            {
+                                temp.Enqueue(new QueueFloodFillDataPoint()
+                                {
+                                    X = item.X,
+                                    Y = item.Y
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private uint _failedCounter = 0;
+        private bool CheckIfEmpty(string[,] bmp, QueueFloodFillDataPoint pt, string tagetLetter)
+        {
+            var contains = _filedToFill.Where(item => item.X == pt.X && item.Y == pt.Y).FirstOrDefault();
+            if (bmp[pt.Y, pt.X].Equals(tagetLetter) && contains == null)
+            {
+                return true;
+            }
+            else
+            {
+                _failedCounter++;
+                return false;
+            }
+        }
+
         private void FloodFill(string[,] bmp, QueueFloodFillDataPoint pt, string targetLetter)
         {
             int height = bmp.GetLength(1),
                 width = bmp.GetLength(0);
-            string targetColor = targetLetter;
 
             Queue<QueueFloodFillDataPoint> q = new Queue<QueueFloodFillDataPoint>();
             q.Enqueue(pt);
@@ -111,11 +268,11 @@
                 // Color the current pixel 
                 if (currentPixel.X < width && currentPixel.Y < height)
                 {
-                    if (!ColorMatch(bmp[currentPixel.X, currentPixel.Y], targetLetter))
+                    if (!ColorMatch(bmp[currentPixel.Y, currentPixel.X], targetLetter))
                     {
-                        if (!_userdAlphabet.Contains(bmp[currentPixel.X, currentPixel.Y]))
+                        if (!_userdAlphabet.Contains(bmp[currentPixel.Y, currentPixel.X]))
                         {
-                            bmp[currentPixel.X, currentPixel.Y] = targetLetter;
+                            bmp[currentPixel.Y, currentPixel.X] = targetLetter;
                             _taggedFields.Add(new QueueFloodFillDataPoint()
                             {
                                 X = currentPixel.X,
@@ -129,112 +286,97 @@
                     }
                 }
 
-                // Step 2 
-                // Check surrounding pixels 
-                //  Right
+                Print();
+
+                bool downCanContinue = true;
+                for (int i = currentPixel.X; i < width; i++)
+                {
+                    if (i < width && currentPixel.Y < height)
+                    {
+                        var elementValue = bmp[i, currentPixel.X];
+                        if (ColorMatch(elementValue, _algorithmData.BorderColor))
+                        {
+                            downCanContinue = false;
+                        }
+
+                        var ifElementIsntBorder = !ColorMatch(elementValue, _algorithmData.BorderColor);
+                        if (ifElementIsntBorder)
+                        {
+                            var ifValueIsntPainted = !ColorMatch(elementValue, targetLetter);
+                            if (ifValueIsntPainted)
+                            {
+                                if (downCanContinue)
+                                {
+
+                                    q.Enqueue(new QueueFloodFillDataPoint(currentPixel.X, i));
+                                }
+                            }
+                        }
+                    }
+                }
+
+                //// Step 2 
+                //// Check surrounding pixels 
+                ////  Down
                 bool rightCanContinue = true;
                 for (int i = currentPixel.X; i < width; i++)
                 {
                     if (i < width && currentPixel.Y < height)
                     {
-                        if (ColorMatch(bmp[currentPixel.Y, i], _algorithmData.BorderColor))
+                        var elementValue = bmp[currentPixel.Y, i];
+                        if (ColorMatch(elementValue, _algorithmData.BorderColor))
                         {
                             rightCanContinue = false;
                         }
 
-                        if (!ColorMatch(bmp[currentPixel.Y, i], _algorithmData.BorderColor))
+                        var ifElementIsntBorder = !ColorMatch(elementValue, _algorithmData.BorderColor);
+                        if (ifElementIsntBorder)
                         {
-                            if (!ColorMatch(bmp[currentPixel.Y, i], targetLetter))
+                            var ifValueIsntPainted = !ColorMatch(elementValue, targetLetter);
+                            if (ifValueIsntPainted)
                             {
-
                                 if (rightCanContinue)
                                 {
-                                    var checkedValue = _taggedFields.Where(item => item.X == i && item.Y == currentPixel.Y).FirstOrDefault();
-                                    if (checkedValue == null)
-                                        q.Enqueue(new QueueFloodFillDataPoint(i, currentPixel.Y));
+                                    q.Enqueue(new QueueFloodFillDataPoint(i, currentPixel.Y));
                                 }
                             }
                         }
                     }
                 }
 
-                //  Down
-                bool downCanContinue = true;
-                for (int i = currentPixel.Y; i > 0 && i < height; i++)
-                {
-                    if (currentPixel.X < width && i < height)
-                    {
-                        if (ColorMatch(bmp[i, currentPixel.X], _algorithmData.BorderColor))
-                        {
-                            downCanContinue = false;
-                        }
 
-                        if (!ColorMatch(bmp[i, currentPixel.X], _algorithmData.BorderColor))
-                        {
-                            if (!ColorMatch(bmp[i, currentPixel.X], targetLetter))
-                            {
-                                if (downCanContinue)
-                                {
-                                    var checkedValue = _taggedFields.Where(item => item.X == currentPixel.X && item.Y == i).FirstOrDefault();
-                                    if (checkedValue == null)
-                                        q.Enqueue(new QueueFloodFillDataPoint(currentPixel.X, i));
-                                }
-                            }
-                        }
-                    }
-                }
+                //bool rightCanContinue = true;
+                //for (int i = currentPixel.X; i < width; i++)
+                //{
+                //    if (i < width && currentPixel.Y < height)
+                //    {
+                //        var elementValue = bmp[currentPixel.Y, i];
+                //        if (ColorMatch(elementValue, _algorithmData.BorderColor))
+                //        {
+                //            rightCanContinue = false;
+                //        }
 
-                //  Left
-                bool leftCanContinue = true;
-                for (int i = currentPixel.X; i > 0 && i < width; i--)
-                {
-                    if (i > 0 && i < width && currentPixel.Y < height)
-                    {
-                        if (ColorMatch(bmp[currentPixel.Y, i], _algorithmData.BorderColor))
-                        {
-                            leftCanContinue = false;
-                        }
+                //        var ifElementIsntBorder = !ColorMatch(elementValue, _algorithmData.BorderColor);
+                //        if (ifElementIsntBorder)
+                //        {
+                //            var ifValueIsntPainted = !ColorMatch(elementValue, targetLetter);
+                //            if (ifValueIsntPainted)
+                //            {
+                //                if (rightCanContinue)
+                //                {
+                //                    q.Enqueue(new QueueFloodFillDataPoint(i, currentPixel.Y));
+                //                }
+                //            }
+                //        }
+                //    }
+                //}
 
-                        if (!ColorMatch(bmp[currentPixel.Y, i], _algorithmData.BorderColor))
-                        {
-                            if (!ColorMatch(bmp[currentPixel.Y, i], targetLetter))
-                            {
-                                if (leftCanContinue)
-                                {
-                                    var checkedValue = _taggedFields.Where(item => item.X == i && item.Y == currentPixel.Y).FirstOrDefault();
-                                    if (checkedValue == null)
-                                        q.Enqueue(new QueueFloodFillDataPoint(i, currentPixel.Y));
-                                }
-                            }
-                        }
-                    }
-                }
 
-                //  Up
-                bool upCanContinue = true;
-                for (int i = currentPixel.Y; i > 0 && i < height; i--)
-                {
-                    if (currentPixel.X < width && i < height)
-                    {
-                        if (ColorMatch(bmp[i, currentPixel.X], _algorithmData.BorderColor))
-                        {
-                            upCanContinue = false;
-                        }
 
-                        if (!ColorMatch(bmp[i, currentPixel.X], _algorithmData.BorderColor))
-                        {
-                            if (!ColorMatch(bmp[i, currentPixel.X], targetLetter))
-                            {
-                                if (upCanContinue)
-                                {
-                                    var checkedValue = _taggedFields.Where(item => item.Y == i && item.X == currentPixel.X).FirstOrDefault();
-                                    if (checkedValue == null)
-                                        q.Enqueue(new QueueFloodFillDataPoint(currentPixel.X, i));
-                                }
-                            }
-                        }
-                    }
-                }
+
+
+
+
             }
         }
     }
