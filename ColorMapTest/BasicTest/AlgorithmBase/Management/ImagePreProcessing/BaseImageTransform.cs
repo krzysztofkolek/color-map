@@ -30,6 +30,7 @@ namespace ColorMapTest.BasicTest.AlgorithmBase.Management.ImagePreProcessing
         {
             _fileList.Add(String.Format("{0}{1}", Directory, "ex1.bmp"));
             _fileList.Add(String.Format("{0}{1}", Directory, "ex2.bmp"));
+            _fileList.Add(String.Format("{0}{1}", Directory, "pol.bmp"));
         }
 
 
@@ -47,6 +48,11 @@ namespace ColorMapTest.BasicTest.AlgorithmBase.Management.ImagePreProcessing
                 {
                     InputImage = _imageLoader.SetImagePath(_fileList[1]).Run().Raw,
                     ExpectedOutput = ExampleGenerator.SecondBlackWhite
+                };
+                yield return new ImageTransformData()
+                {
+                    InputImage = _imageLoader.SetImagePath(_fileList[2]).Run().Raw,
+                    ExpectedOutput = ExampleGenerator.ThirdBlackWhite
                 };
             }
         }

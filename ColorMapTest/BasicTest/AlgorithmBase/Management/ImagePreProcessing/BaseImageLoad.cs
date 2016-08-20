@@ -32,6 +32,10 @@ namespace ColorMapTest.BasicTest.AlgorithmBase.Management.ImagePreProcessing
                 {
                     ImageName = "ex2.bmp"
                 };
+                yield return new ImageLoadData()
+                {
+                    ImageName = "pol.bmp"
+                };
             }
         }
     }

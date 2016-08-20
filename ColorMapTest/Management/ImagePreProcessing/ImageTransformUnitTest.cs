@@ -32,5 +32,19 @@ namespace ColorMapTest.Management.ImagePreProcessing
                 }
             }
         }
+        public static void Serialize(byte[,] t, string path)
+        {
+            using (System.IO.StreamWriter sr = new System.IO.StreamWriter(path))
+            {
+                for (int i = 0; i < t.GetLength(0); i++)
+                {
+                    for (int j = 0; j < t.GetLength(1); j++)
+                    {
+                        sr.Write("\",\"" + t[i, j]);
+                    }
+                    sr.Write("\r\n");
+                }
+            }
+        }
     }
 }
