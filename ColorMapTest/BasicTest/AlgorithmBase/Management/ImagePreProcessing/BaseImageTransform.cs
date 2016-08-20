@@ -43,6 +43,11 @@ namespace ColorMapTest.BasicTest.AlgorithmBase.Management.ImagePreProcessing
                     InputImage = _imageLoader.SetImagePath(_fileList[0]).Run().Raw,
                     ExpectedOutput = ExampleGenerator.FirstBlackWhite
                 };
+                yield return new ImageTransformData()
+                {
+                    InputImage = _imageLoader.SetImagePath(_fileList[1]).Run().Raw,
+                    ExpectedOutput = ExampleGenerator.SecondBlackWhite
+                };
             }
         }
     }

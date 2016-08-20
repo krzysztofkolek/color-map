@@ -24,9 +24,9 @@ namespace ColorMapTest.Management.ImagePreProcessing
             var output = ImageTransformAlgorithm.Run().BlackAndWhite;
 
             // Assert
-            for (int i = 0; i < output.GetLength(1); i++)
+            for (int i = 0; i < output.GetLength(0); i++)
             {
-                for (int j = 0; j < output.GetLength(0); j++)
+                for (int j = 0; j < output.GetLength(1); j++)
                 {
                     Assert.AreEqual(input.ExpectedOutput[i, j], output[i, j]);
                 }

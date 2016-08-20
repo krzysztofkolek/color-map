@@ -58,7 +58,7 @@ namespace ColorMap.Management.ImagePreProcessing
         private void RotateArray()
         {
             int xMax = _data.BlackAndWhite.GetLength(0),
-                yMax = _data.BlackAndWhite.GetLength(0),
+                yMax = _data.BlackAndWhite.GetLength(1),
                 xLast = _data.BlackAndWhite.GetLength(0) - 1;
 
             for (int y = 0; y < yMax; y++)
