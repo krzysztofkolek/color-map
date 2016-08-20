@@ -46,6 +46,37 @@
                         { "H", System.Drawing.Color.Yellow  }
                     }
                 };
+                yield return new ColorMapProcessData()
+                {
+                    FileName = _fileList[1],
+                    Expected = new Dictionary<string, System.Drawing.Color>()
+                    {
+                        { "M", System.Drawing.Color.Yellow  },
+                        { "L", System.Drawing.Color.Green   },
+                        { "O", System.Drawing.Color.Yellow  },
+                        { "I", System.Drawing.Color.Green   },
+                        { "C", System.Drawing.Color.Yellow  },
+                        { "E", System.Drawing.Color.Blue    },
+                        { "G", System.Drawing.Color.Green   },
+                        { "H", System.Drawing.Color.Red     },
+                        { "J", System.Drawing.Color.Green   },
+                        { "N", System.Drawing.Color.Blue    },
+                        { "P", System.Drawing.Color.Red     },
+                        { "Q", System.Drawing.Color.Yellow  },
+                        { "S", System.Drawing.Color.Red     },
+                        { "X", System.Drawing.Color.Green   },
+                        { "D", System.Drawing.Color.Red     },
+                        { "K", System.Drawing.Color.Blue    },
+                        { "R", System.Drawing.Color.Blue    },
+                        { "F", System.Drawing.Color.Red     },
+                        { "T", System.Drawing.Color.Blue    },
+                        { "U", System.Drawing.Color.Blue    },
+                        { "V", System.Drawing.Color.Red     },
+                        { "W", System.Drawing.Color.Green   },
+                        { "A", System.Drawing.Color.Yellow  },
+                        { "B", System.Drawing.Color.Blue    }
+                    }
+                };
             }
         }
     }
