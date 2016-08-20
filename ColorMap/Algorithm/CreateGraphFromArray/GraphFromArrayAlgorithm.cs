@@ -60,8 +60,8 @@
 
         private void CheckSurroundingHelper(string[,] inputMatrix, int x, int y, string letter)
         {
-            int height = inputMatrix.GetLength(1),
-                    width = inputMatrix.GetLength(0);
+            int height = inputMatrix.GetLength(0),
+                    width = inputMatrix.GetLength(1);
 
             if (x < width && y < height && x >= 0 && y >= 0)
             {
@@ -88,6 +88,11 @@
         public override Algorithm Run()
         {
             if (_data.ListOfSiblingRegions == null)
+            {
+                _data.ListOfSiblingRegions = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>>();
+            }
+
+            if (_data.ListOfSiblingRegions.Count > 0)
             {
                 _data.ListOfSiblingRegions = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>>();
             }

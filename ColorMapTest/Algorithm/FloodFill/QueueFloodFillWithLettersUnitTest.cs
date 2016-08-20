@@ -27,7 +27,6 @@ namespace ColorMapTest.Algorithm.FloodFill
                 AlgorithmStartPoint = new ColorMap.DataStructure.QueueFloodFillDataPoint(0, 0)
             });
             QueueFloodFillAlgorithm.Run();
-            Serialize(inputTestObject.Input, "D:\\letter1234.txt");
 
             //Assert
             int y = inputTestObject.Input.GetLength(0),
@@ -37,20 +36,6 @@ namespace ColorMapTest.Algorithm.FloodFill
                 for (int j = 0; j < x; j++)
                 {
                     Assert.AreEqual(inputTestObject.Input[i, j], inputTestObject.Expected[i, j]);
-                }
-            }
-        }
-        public static void Serialize(string[,] t, string path)
-        {
-            using (System.IO.StreamWriter sr = new System.IO.StreamWriter(path))
-            {
-                for (int i = 0; i < t.GetLength(0); i++)
-                {
-                    for (int j = 0; j < t.GetLength(1); j++)
-                    {
-                        sr.Write("\",\"" + t[i, j]);
-                    }
-                    sr.Write("\r\n");
                 }
             }
         }
