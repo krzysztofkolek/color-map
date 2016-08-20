@@ -8,7 +8,8 @@
     public class QueueFloodFillWithLetters : Algorithm
     {
         private QueueFloodFillWithLettersData _algorithmData { get; set; }
-        private List<string> _alphabet = new List<string>()
+        private List<string> _alphabet = new List<string>();
+        private List<string> _wholeAlphabet = new List<string>()
         {
              "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
         };
@@ -33,6 +34,11 @@
         {
             int y = _algorithmData.Image.GetLength(0),
                 x = _algorithmData.Image.GetLength(1);
+
+            _alphabet.Clear();
+            _alphabet.AddRange(_wholeAlphabet);
+
+            _data.LetterFilledRegions = new Dictionary<string, List<QueueFloodFillDataPoint>>();
 
             for (int i = 0; i < y; i++)
             {
@@ -75,8 +81,8 @@
 
         private void FloodFillCheckIfEmpty(string[,] bmp, QueueFloodFillDataPoint pt, string targetLetter)
         {
-            int height = bmp.GetLength(1),
-                   width = bmp.GetLength(0);
+            int height = bmp.GetLength(0),
+                   width = bmp.GetLength(1);
             _filedToFill = new Queue<QueueFloodFillDataPoint>();
             _filedToFill.Enqueue(pt);
 
