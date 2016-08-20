@@ -418,7 +418,7 @@
                         { "U", new List<string>() { "P", "O", "W" } },
                         { "V", new List<string>() { "N", "W", "O" } },
                         { "W", new List<string>() { "V", "N", "O" } },
-                        { "X", new List<string>() { "W", "V", "O", "N", "U" } },
+                        { "X", new List<string>() { "W", "V", "O", "N", "U" } }
                     }
                 };
             }
