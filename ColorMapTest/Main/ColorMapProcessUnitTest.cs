@@ -11,6 +11,7 @@
         public void ColorMapProcess(ColorMapProcessData input)
         {
             // Arrange 
+            MainProcess.SetConfiguration(input.Configuration);
 
             // Act
             var output = MainProcess.Start(input.FileName);

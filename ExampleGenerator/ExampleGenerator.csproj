@@ -44,6 +44,12 @@
     <Compile Include="ExampleGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ColorMap\ColorMap.csproj">
+      <Project>{ef83043b-9808-4dc7-8bea-c19d16d50e34}</Project>
+      <Name>ColorMap</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

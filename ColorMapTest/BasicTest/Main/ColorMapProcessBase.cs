@@ -28,6 +28,7 @@
         {
             _fileList.Add(String.Format("{0}{1}", Directory, "ex1.bmp"));
             _fileList.Add(String.Format("{0}{1}", Directory, "ex2.bmp"));
+            _fileList.Add(String.Format("{0}{1}", Directory, "pol.bmp"));
         }
 
         public static IEnumerable<ColorMapProcessData> ColorMapProcessData
@@ -47,6 +48,13 @@
                         { "F", System.Drawing.Color.Blue    },
                         { "A", System.Drawing.Color.Blue    },
                         { "H", System.Drawing.Color.Yellow  }
+                    },
+                    Configuration = new ColorMap.Configuration.Config()
+                    {
+                        QueueFloodFillWithLetter = new ColorMap.Configuration.QueueFloodFillWithConfig()
+                        {
+                            MaxIterationCount = 350
+                        }
                     }
                 };
                 yield return new ColorMapProcessData()
@@ -78,6 +86,48 @@
                         { "W", System.Drawing.Color.Green   },
                         { "A", System.Drawing.Color.Yellow  },
                         { "B", System.Drawing.Color.Blue    }
+                    },
+                    Configuration = new ColorMap.Configuration.Config()
+                    {
+                        QueueFloodFillWithLetter = new ColorMap.Configuration.QueueFloodFillWithConfig()
+                        {
+                            MaxIterationCount = 350
+                        }
+                    }
+                };
+                yield return new ColorMapProcessData()
+                {
+                    FileName = _fileList[2],
+                    Expected = new Dictionary<string, System.Drawing.Color>()
+                    {
+                        { "O",  System.Drawing.Color.Yellow },
+                        { "G",  System.Drawing.Color.Yellow },
+                        { "L",  System.Drawing.Color.Green },
+                        { "P",  System.Drawing.Color.Red },
+                        { "A",  System.Drawing.Color.Green },
+                        { "J",  System.Drawing.Color.Red },
+                        { "C",  System.Drawing.Color.Red },
+                        { "H",  System.Drawing.Color.Blue },
+                        { "I",  System.Drawing.Color.Red },
+                        { "K",  System.Drawing.Color.Yellow },
+                        { "N",  System.Drawing.Color.Green },
+                        { "T",  System.Drawing.Color.Green },
+                        { "E",  System.Drawing.Color.Green },
+                        { "M",  System.Drawing.Color.Green },
+                        { "Q",  System.Drawing.Color.Blue },
+                        { "R",  System.Drawing.Color.Yellow },
+                        { "S",  System.Drawing.Color.Red },
+                        { "U",  System.Drawing.Color.Blue },
+                        { "B",  System.Drawing.Color.Yellow },
+                        { "D",  System.Drawing.Color.Red },
+                        { "F",  System.Drawing.Color.Yellow }
+                    },
+                    Configuration = new ColorMap.Configuration.Config()
+                    {
+                        QueueFloodFillWithLetter = new ColorMap.Configuration.QueueFloodFillWithConfig()
+                        {
+                            MaxIterationCount = 200000
+                        }
                     }
                 };
             }

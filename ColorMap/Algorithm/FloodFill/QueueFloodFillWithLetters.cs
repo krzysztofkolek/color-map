@@ -24,6 +24,7 @@
 
         public QueueFloodFillWithLetters(Config config)
         {
+            _config = config;
         }
 
         public QueueFloodFillWithLetters SetData(QueueFloodFillWithLettersData input)
