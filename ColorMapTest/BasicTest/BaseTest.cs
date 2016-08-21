@@ -66,5 +66,62 @@ namespace ColorMapTest.BasicTest
             var method = invokedClass.GetType().GetMethod(methodName);
             method.Invoke(invokedClass, new object[] { });
         }
+
+        private void SaveToFile(String input)
+        {
+
+        }
+
+        protected void Serialize(string[,] t)
+        {
+            string output = "";
+
+            for (int i = 0; i < t.GetLength(0); i++)
+            {
+                for (int j = 0; j < t.GetLength(1); j++)
+                {
+                    output += t[i, j];
+                }
+                output += "\r\n";
+            }
+
+            SaveToFile(output);
+        }
+
+        protected void Serialize(System.Collections.Generic.Dictionary<string, System.Drawing.Color> resultDic)
+        {
+            string output = "";
+            foreach (var dictionaryEntry in resultDic)
+            {
+                output += "{ \"";
+                output += System.String.Format("{0}", dictionaryEntry.Key);
+                output += "\",  System.Drawing.Color.";
+                output += System.String.Format("{0} ", dictionaryEntry.Value);
+                output.Remove(output.Length - 1);
+
+                output += "},\n ";
+            }
+            SaveToFile(output);
+        }
+
+        protected void Serialize(System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> resultDic, string path)
+        {
+            string output = "";
+            foreach (var dictionaryEntry in resultDic)
+            {
+                output += "{ \"";
+                output += System.String.Format("{0}", dictionaryEntry.Key);
+                output += "\",  new List<string>() { \n ";
+                output += "\t";
+                foreach (var dictionaryEntryValues in dictionaryEntry.Value)
+                {
+                    output += System.String.Format("\"{0}\", ", dictionaryEntryValues);
+                }
+                output.Remove(output.Length - 1);
+
+                output += "\n },";
+            }
+            SaveToFile(output);
+        }
     }
 }
