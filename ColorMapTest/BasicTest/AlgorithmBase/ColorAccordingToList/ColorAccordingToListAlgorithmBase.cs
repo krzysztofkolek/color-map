@@ -103,6 +103,45 @@
                         { "B", System.Drawing.Color.Red     }
                     }
                 };
+
+                yield return new ColorAccordingToListData()
+                {
+                    Input = new Dictionary<string, List<string>>()
+                    {
+                        { "A",  new List<string>() { "C", "B", "D", "F", "G", "H" } },
+                        { "B",  new List<string>() { "D", "A" } },
+                        { "C",  new List<string>() { "A", "E", "G", "F" } },
+                        { "D",  new List<string>() { "A", "B" } },
+                        { "E",  new List<string>() { "C", "G", "I" } },
+                        { "F",  new List<string>() { "C", "A" }  },
+                        { "G",  new List<string>() { "C", "A", "E", "H", "J", "I", "L" } },
+                        { "H",  new List<string>() { "A", "G", "J", "N" } },
+                        { "I",  new List<string>() { "E", "G", "K", "L" } },
+                        { "J",  new List<string>() { "G", "H", "L", "N", "O" } },
+                        { "K",  new List<string>() { "I", "L", "M", "P" } },
+                        { "L",  new List<string>() { "G", "I", "K", "J", "O", "P", "Q" } },
+                        { "M",  new List<string>() { "K", "P", "R" } },
+                        { "N",  new List<string>() { "H", "J", "O", "S" } },
+                        { "O",  new List<string>() { "J", "L", "N", "Q", "P", "S", "T", "U" } },
+                        { "P",  new List<string>() { "L", "K", "M", "Q", "O", "R", "T" } },
+                        { "Q",  new List<string>() { "P", "L", "O" } },
+                        { "R",  new List<string>() { "M", "P", "T" } },
+                        { "S",  new List<string>() { "N", "O", "U" } },
+                        { "T",  new List<string>() { "O", "P", "R", "U" } },
+                        { "U",  new List<string>() { "O", "S", "T" } }
+                    },
+                    Expected = new Dictionary<string, System.Drawing.Color>()
+                    {
+                        { "D", System.Drawing.Color.Yellow  },
+                        { "G", System.Drawing.Color.Green   },
+                        { "B", System.Drawing.Color.Red     },
+                        { "C", System.Drawing.Color.Green   },
+                        { "E", System.Drawing.Color.Red     },
+                        { "F", System.Drawing.Color.Blue    },
+                        { "A", System.Drawing.Color.Blue    },
+                        { "H", System.Drawing.Color.Yellow  }
+                    }
+                };
             }
         }
     }
