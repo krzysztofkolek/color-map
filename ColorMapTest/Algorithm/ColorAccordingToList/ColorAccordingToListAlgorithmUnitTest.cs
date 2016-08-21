@@ -18,7 +18,7 @@
                 Input = input.Input
             });
             var output = Algorithm.Run().GetData().ListOfLettersAndCorespondingColors;
-
+            Serialize(output);
             // Assert
             foreach (var expectedItem in input.Expected)
             {
