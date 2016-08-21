@@ -4,6 +4,8 @@ namespace ColorMapTest.BasicTest
     using ColorMap.Configuration;
     using NUnit.Framework;
     using System;
+    using System.IO;
+    using System.Runtime.CompilerServices;
 
     [TestFixture]
     public abstract class BaseTest
@@ -67,12 +69,25 @@ namespace ColorMapTest.BasicTest
             method.Invoke(invokedClass, new object[] { });
         }
 
-        private void SaveToFile(String input)
+        public virtual String GetFileNameForSave()
         {
-
+            return this.GetType().Name;
+        }
+        public virtual String GetFileNameWithDirectoryForSave(string caller)
+        {
+            return String.Format("{0}\\{1}{2}.txt", Directory, caller, GetFileNameForSave());
+        }
+        private void SaveToFile(String input, String callerName)
+        {
+            string filename = GetFileNameWithDirectoryForSave(callerName);
+            using (StreamWriter w = File.AppendText(filename))
+            {
+                w.Write(String.Format("\r\n\r\n{0}\r\n", filename));
+                w.Write(input);
+            } 
         }
 
-        protected void Serialize(string[,] t)
+        protected void Serialize(string[,] t, string fileProcessed, [CallerMemberName]string memberName = "")
         {
             string output = "";
 
@@ -85,10 +100,10 @@ namespace ColorMapTest.BasicTest
                 output += "\r\n";
             }
 
-            SaveToFile(output);
+            SaveToFile(output, fileProcessed + memberName);
         }
 
-        protected void Serialize(System.Collections.Generic.Dictionary<string, System.Drawing.Color> resultDic)
+        protected void Serialize(System.Collections.Generic.Dictionary<string, System.Drawing.Color> resultDic, string fileProcessed, [CallerMemberName]string memberName = "")
         {
             string output = "";
             foreach (var dictionaryEntry in resultDic)
@@ -101,10 +116,10 @@ namespace ColorMapTest.BasicTest
 
                 output += "},\n ";
             }
-            SaveToFile(output);
+            SaveToFile(output, fileProcessed + memberName);
         }
 
-        protected void Serialize(System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> resultDic, string path)
+        protected void Serialize(System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> resultDic, string fileProcessed, [CallerMemberName]string memberName = "")
         {
             string output = "";
             foreach (var dictionaryEntry in resultDic)
@@ -121,7 +136,7 @@ namespace ColorMapTest.BasicTest
 
                 output += "\n },";
             }
-            SaveToFile(output);
+            SaveToFile(output, fileProcessed + memberName);
         }
     }
 }

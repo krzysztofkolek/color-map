@@ -53,7 +53,8 @@
                         {
                             MaxIterationCount = 350
                         }
-                    }
+                    },
+                    FileName = "First_"
                 };
 
                 yield return new QueueFloodFillWithLettersData()
@@ -82,7 +83,8 @@
                         {
                             MaxIterationCount = 350
                         }
-                    }
+                    },
+                    FileName = "Second_"
                 };
 
                 yield return new QueueFloodFillWithLettersData()
@@ -277,9 +279,10 @@
                     {
                         QueueFloodFillWithLetter = new ColorMap.Configuration.QueueFloodFillWithConfig()
                         {
-                            MaxIterationCount = 200000
+                            MaxIterationCount = 500000
                         }
-                    }
+                    },
+                    FileName = "Third_"
                 };
 
             }

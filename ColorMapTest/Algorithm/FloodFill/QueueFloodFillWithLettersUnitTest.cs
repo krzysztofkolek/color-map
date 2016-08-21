@@ -29,6 +29,8 @@ namespace ColorMapTest.Algorithm.FloodFill
             .SetConfiguration(inputTestObject.Configuration);
             QueueFloodFillAlgorithm.Run();
 
+            Serialize(inputTestObject.Input, inputTestObject.FileName);
+
             //Assert
             int y = inputTestObject.Input.GetLength(0),
                 x = inputTestObject.Input.GetLength(1);

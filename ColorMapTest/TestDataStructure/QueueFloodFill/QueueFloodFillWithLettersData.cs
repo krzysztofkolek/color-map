@@ -9,5 +9,6 @@
         public byte BorderColor { get; set; }
         public string[,] Expected { get; set; }
         public Config Configuration { get; set; }
+        public string FileName { get; set; }
     }
 }
