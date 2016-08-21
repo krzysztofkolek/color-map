@@ -1,12 +1,14 @@
 ﻿namespace ColorMap.Algorithm.FloodFill
 {
+    using Configuration;
     using DataStructure;
     using DataStructure.FloodFill;
-    using System.Collections.Generic; 
+    using System.Collections.Generic;
     using System.Linq;
 
     public class QueueFloodFillWithLetters : Algorithm
     {
+        private Config _config { get; set; }
         private QueueFloodFillWithLettersData _algorithmData { get; set; }
         private List<string> _alphabet = new List<string>();
         private List<string> _wholeAlphabet = new List<string>()
@@ -20,13 +22,19 @@
         private uint _failedCounter = 0;
 
 
-        public QueueFloodFillWithLetters()
+        public QueueFloodFillWithLetters(Config config)
         {
         }
 
         public QueueFloodFillWithLetters SetData(QueueFloodFillWithLettersData input)
         {
             _algorithmData = input;
+            return this;
+        }
+
+        public QueueFloodFillWithLetters SetConfiguration(Config configuration)
+        {
+            _config = configuration;
             return this;
         }
 
@@ -86,7 +94,7 @@
             _filedToFill = new Queue<QueueFloodFillDataPoint>();
             _filedToFill.Enqueue(pt);
 
-            int maxIterationCount = 350;
+            int maxIterationCount = _config.QueueFloodFillWithLetter.MaxIterationCount;
             while (_filedToFill.Count > 0 && _failedCounter < maxIterationCount)
             {
                 QueueFloodFillDataPoint currentPixel = _filedToFill.Dequeue();

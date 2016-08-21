@@ -76,6 +76,14 @@
     <Compile Include="Algorithm\CreateGraphFromArray\GraphFromArrayAlgorithm.cs" />
     <Compile Include="Algorithm\FloodFill\QueueFloodFillWithLetters.cs" />
     <Compile Include="ColorMapProcess.cs" />
+    <Compile Include="Configuration\ColorAccordingToListAlgorithmConfig.cs" />
+    <Compile Include="Configuration\Config.cs" />
+    <Compile Include="Configuration\GraphFromArrayAlgorithmConfig.cs" />
+    <Compile Include="Configuration\ImageLoadConfig.cs" />
+    <Compile Include="Configuration\ImageSaveConfig.cs" />
+    <Compile Include="Configuration\ImageTransformConfig.cs" />
+    <Compile Include="Configuration\QueueFloodFillConfig.cs" />
+    <Compile Include="Configuration\QueueFloodFillWithConfig.cs" />
     <Compile Include="DataStructure\ColorAccordingToList\ColorAccordingToListData.cs" />
     <Compile Include="DataStructure\FloodFill\QueueFloodFillData.cs" />
     <Compile Include="DataStructure\FloodFill\QueueFloodFillDataPoint.cs" />

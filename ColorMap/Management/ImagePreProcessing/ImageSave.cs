@@ -1,10 +1,18 @@
 ﻿namespace ColorMap.Management.ImagePreProcessing
 {
     using ColorMap.DataStructure;
+    using Configuration;
     using System.Drawing;
 
     public class ImageSave
     {
+        private Config _config { get; set; }
+
+        public ImageSave(Config configuration)
+        {
+            _config = configuration;
+        }
+
         public void SaveChanges(ProcessedImageData _data, string pathWithFile)
         {
             Image loadedImage = _data.Image;

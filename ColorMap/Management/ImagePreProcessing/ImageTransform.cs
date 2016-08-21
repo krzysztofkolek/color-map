@@ -2,6 +2,7 @@
 namespace ColorMap.Management.ImagePreProcessing
 {
     using ColorMap.DataStructure.Management.ImagePreProcessing;
+    using Configuration;
     using Emgu.CV;
     using Emgu.CV.Structure;
     using System.Drawing;
@@ -12,6 +13,12 @@ namespace ColorMap.Management.ImagePreProcessing
     public class ImageTransform : ImagePreProcessAction
     {
         private ImagePreProcessingData _data { get; set; }
+        private Config _config { get; set; }
+
+        public ImageTransform(Config confuguration)
+        {
+            _config = confuguration;
+        }
 
         public ImageTransform SetImage(ImagePreProcessingData input)
         {

@@ -10,9 +10,12 @@
 
         public ColorAccordingToListAlgorithmBase()
         {
-            Algorithm = new ColorAccordingToListAlgorithm();
+            Algorithm = new ColorAccordingToListAlgorithm(Configuration);
         }
+        public override void AdjustConfiguration()
+        {
 
+        }
         public static IEnumerable<ColorAccordingToListData> DataForColoring
         {
             get

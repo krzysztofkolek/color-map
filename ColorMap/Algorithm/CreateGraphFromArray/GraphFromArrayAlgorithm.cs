@@ -1,15 +1,19 @@
 ﻿namespace ColorMap.Algorithm.CreateGraphFromArray
 {
     using ColorMap.DataStructure.Graph;
+    using Configuration;
     using System;
     using System.Collections;
 
     public class GraphFromArrayAlgorithm : Algorithm
     {
+        private Config _config { get; set; }
+
         private GraphData _inputData { get; set; }
 
-        public GraphFromArrayAlgorithm()
+        public GraphFromArrayAlgorithm(Config configuration)
         {
+            _config = configuration;
         }
 
         public GraphFromArrayAlgorithm(GraphData input)

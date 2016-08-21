@@ -12,9 +12,12 @@
 
         public ColorMapProcessBase()
         {
-            MainProcess = new ColorMapProcess();
+            MainProcess = new ColorMapProcess(Configuration);
         }
+        public override void AdjustConfiguration()
+        {
 
+        }
         static ColorMapProcessBase()
         {
             _fileList = new List<string>();

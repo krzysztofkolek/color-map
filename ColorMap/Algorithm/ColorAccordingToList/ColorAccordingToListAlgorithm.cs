@@ -1,5 +1,6 @@
 ﻿namespace ColorMap.Algorithm.ColorAccordingToList
 {
+    using Configuration;
     using DataStructure.ColorAccordingToList;
     using System;
     using System.Collections.Generic;
@@ -9,12 +10,16 @@
     public class ColorAccordingToListAlgorithm : Algorithm
     {
         private ColorAccordingToListData _inputData { get; set; }
-        public ColorAccordingToListAlgorithm()
+        private Config _config { get; set; }
+
+        public ColorAccordingToListAlgorithm(Config configuration)
         {
             if (_data.ListOfLettersAndCorespondingColors == null)
             {
                 _data.ListOfLettersAndCorespondingColors = new System.Collections.Generic.Dictionary<string, System.Drawing.Color>();
             }
+
+            _config = configuration;
         }
 
         public ColorAccordingToListAlgorithm(ColorAccordingToListData data)

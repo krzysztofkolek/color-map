@@ -2,6 +2,7 @@
 {
     using ColorMap.DataStructure;
     using ColorMap.DataStructure.FloodFill;
+    using Configuration;
     using System.Collections.Generic;
 
     /// <summary>
@@ -10,9 +11,11 @@
     public class QueueFloodFill : Algorithm
     {
         private QueueFloodFillData _algorithmData { get; set; }
+        private Config _config { get; set; }
 
-        public QueueFloodFill()
+        public QueueFloodFill(Config configuration)
         {
+            _config = configuration;
         }
 
         public QueueFloodFill SetData(QueueFloodFillData input)

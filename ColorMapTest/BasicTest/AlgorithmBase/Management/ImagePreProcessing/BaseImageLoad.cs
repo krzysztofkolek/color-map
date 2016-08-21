@@ -5,6 +5,7 @@ namespace ColorMapTest.BasicTest.AlgorithmBase.Management.ImagePreProcessing
     using ColorMapTest.TestDataStructure.Management.ImagePreProcessing;
     using ExampleGenerator;
     using System.Collections.Generic;
+    using System;
 
     public class BaseImageLoad : BaseTest
     {
@@ -13,7 +14,7 @@ namespace ColorMapTest.BasicTest.AlgorithmBase.Management.ImagePreProcessing
 
         public BaseImageLoad()
         {
-            ImageLoader = new ImageLoad();
+            ImageLoader = new ImageLoad(Configuration);
 
             ExampleGenerator = new ExampleGenerator();
             ExampleGenerator.SetPath(Context.TestDirectory);
@@ -37,6 +38,11 @@ namespace ColorMapTest.BasicTest.AlgorithmBase.Management.ImagePreProcessing
                     ImageName = "pol.bmp"
                 };
             }
+        }
+
+        public override void AdjustConfiguration()
+        {
+            
         }
     }
 }

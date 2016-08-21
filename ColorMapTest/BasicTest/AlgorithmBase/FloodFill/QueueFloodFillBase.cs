@@ -16,11 +16,16 @@ namespace ColorMapTest.BasicTest.AlgorithmBase.FloodFill
             {
                 if (_queueFloodFillAlgorithm == null)
                 {
-                    _queueFloodFillAlgorithm = new QueueFloodFill();
+                    _queueFloodFillAlgorithm = new QueueFloodFill(Configuration);
                 }
                 return _queueFloodFillAlgorithm;
             }
         }
+        public override void AdjustConfiguration()
+        {
+
+        }
+
 
         public static IEnumerable<QueueFloodFillData> DataFromStartingGenerator
         {

@@ -2,6 +2,7 @@
 namespace ColorMap.Management.ImagePreProcessing
 {
     using ColorMap.DataStructure.Management.ImagePreProcessing;
+    using Configuration;
     using System.Drawing;
     using System.Drawing.Imaging;
     using System.IO;
@@ -11,7 +12,13 @@ namespace ColorMap.Management.ImagePreProcessing
     /// </summary>
     public class ImageLoad : ImagePreProcessAction
     {
+        private Config _config { get; set; }
         private string _imagePath { get; set; }
+
+        public ImageLoad(Config configuration)
+        {
+            _config = configuration;
+        }
 
         public ImageLoad SetImagePath(string path)
         {

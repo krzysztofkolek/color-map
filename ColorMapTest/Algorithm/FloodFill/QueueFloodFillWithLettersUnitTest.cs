@@ -25,7 +25,8 @@ namespace ColorMapTest.Algorithm.FloodFill
                 BorderColor = inputTestObject.BorderColor,
                 Image = inputTestObject.Image,
                 AlgorithmStartPoint = new ColorMap.DataStructure.QueueFloodFillDataPoint(0, 0)
-            });
+            })
+            .SetConfiguration(inputTestObject.Configuration);
             QueueFloodFillAlgorithm.Run();
 
             //Assert

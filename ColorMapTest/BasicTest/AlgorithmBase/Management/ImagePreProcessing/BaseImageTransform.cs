@@ -15,15 +15,20 @@ namespace ColorMapTest.BasicTest.AlgorithmBase.Management.ImagePreProcessing
         private static List<string> _fileList { get; set; }
         static BaseImageTransform()
         {
-            _imageLoader = new ImageLoad();
+            _imageLoader = new ImageLoad(new ColorMap.Configuration.Config());
             _fileList = new List<string>();
 
             InvokeMethod<BaseImageTransform>("BaseImageTransformInit");
         }
 
+        public override void AdjustConfiguration()
+        {
+
+        }
+
         public BaseImageTransform()
         {
-            ImageTransformAlgorithm = new ImageTransform();
+            ImageTransformAlgorithm = new ImageTransform(Configuration);
         }
 
         public void BaseImageTransformInit()
