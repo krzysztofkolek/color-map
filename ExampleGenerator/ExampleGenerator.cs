@@ -13946,6 +13946,32 @@ namespace ExampleGenerator
                     };
             }
         }
+
+        public static List<Color> ColorsList
+        {
+            get
+            {
+                return new List<Color>()
+                           {
+                               Color.Yellow,
+                               Color.Green,
+                               Color.Red,
+                               Color.Blue
+                           };
+            }
+        }
+
+        public static List<string> Alphabet
+        {
+            get
+            {
+                return new List<string>()
+                            {
+                                 "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+                            };
+            }
+        }
+
         /// <summary>
         /// Simple method for test 
         /// Method is shouldbe surrounded by a try/catch blok 

@@ -2,8 +2,6 @@
 {
     using ColorMap.DataStructure.Graph;
     using Configuration;
-    using System;
-    using System.Collections;
 
     public class GraphFromArrayAlgorithm : Algorithm
     {
@@ -29,37 +27,35 @@
 
         private void CheckSurrounding(string[,] inputMatrix, int x, int y, string letter)
         {
-            // Right
-            CheckSurroundingHelper(inputMatrix, x + 1, y, letter);
-            CheckSurroundingHelper(inputMatrix, x + 2, y, letter);
+            int howManyNeighborPixelToVisit = _config.GraphFromArrayAlgorithm.HowManyNeighborPixelToVisit;
 
-            // Down
-            CheckSurroundingHelper(inputMatrix, x, y + 1, letter);
-            CheckSurroundingHelper(inputMatrix, x, y + 2, letter);
-
-            // Left
-            CheckSurroundingHelper(inputMatrix, x - 1, y, letter);
-            CheckSurroundingHelper(inputMatrix, x - 2, y, letter);
-
-            // Up
-            CheckSurroundingHelper(inputMatrix, x, y - 1, letter);
-            CheckSurroundingHelper(inputMatrix, x, y - 2, letter);
-
-            // Rigth Up
-            CheckSurroundingHelper(inputMatrix, x + 1, y - 1, letter);
-            CheckSurroundingHelper(inputMatrix, x + 2, y - 2, letter);
-
-            // Left Up
-            CheckSurroundingHelper(inputMatrix, x - 1, y - 1, letter);
-            CheckSurroundingHelper(inputMatrix, x - 2, y - 2, letter);
-
-            // Right Down
-            CheckSurroundingHelper(inputMatrix, x + 1, y + 1, letter);
-            CheckSurroundingHelper(inputMatrix, x + 2, y + 2, letter);
-
-            // Left Down
-            CheckSurroundingHelper(inputMatrix, x - 1, y + 1, letter);
-            CheckSurroundingHelper(inputMatrix, x - 2, y + 2, letter);
+            for (int i = 0; i < howManyNeighborPixelToVisit; i++)
+            {
+                int stepValue = (i + 1);
+                // Right
+                CheckSurroundingHelper(inputMatrix, x + stepValue, y, letter);
+                
+                // Down
+                CheckSurroundingHelper(inputMatrix, x, y + stepValue, letter);
+                
+                // Left
+                CheckSurroundingHelper(inputMatrix, x - stepValue, y, letter);
+                
+                // Up
+                CheckSurroundingHelper(inputMatrix, x, y - stepValue, letter);
+                
+                // Rigth Up
+                CheckSurroundingHelper(inputMatrix, x + stepValue, y - stepValue, letter);
+                
+                // Left Up
+                CheckSurroundingHelper(inputMatrix, x - stepValue, y - stepValue, letter);
+                
+                // Right Down
+                CheckSurroundingHelper(inputMatrix, x + stepValue, y + stepValue, letter);
+                
+                // Left Down
+                CheckSurroundingHelper(inputMatrix, x - stepValue, y + stepValue, letter);
+            }
         }
 
         private void CheckSurroundingHelper(string[,] inputMatrix, int x, int y, string letter)

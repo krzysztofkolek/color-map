@@ -2,5 +2,6 @@
 {
     public class GraphFromArrayAlgorithmConfig
     {
+        public int HowManyNeighborPixelToVisit { get; set; }
     }
 }

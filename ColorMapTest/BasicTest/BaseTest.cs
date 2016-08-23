@@ -33,13 +33,24 @@ namespace ColorMapTest.BasicTest
 
             Configuration = new Config()
             {
-                QueueFloodFillWithLetter = new QueueFloodFillWithConfig(),
-                ColorAccordingToListAlgorithm = new ColorAccordingToListAlgorithmConfig(),
-                GraphFromArrayAlgorithm = new GraphFromArrayAlgorithmConfig(),
-                ImageLoad = new ImageLoadConfig(),
-                ImageSave = new ImageSaveConfig(),
-                ImageTransform = new ImageTransformConfig(),
-                QueueFloodFill = new QueueFloodFillConfig()
+                QueueFloodFillWithLetter = new ColorMap.Configuration.QueueFloodFillWithConfig()
+                {
+                    MaxIterationCount = 500000,
+                    Alphabet = ExampleGenerator.ExampleGenerator.Alphabet
+                },
+                ColorAccordingToListAlgorithm = new ColorMap.Configuration.ColorAccordingToListAlgorithmConfig()
+                {
+                    Colors = ExampleGenerator.ExampleGenerator.ColorsList
+
+                },
+                GraphFromArrayAlgorithm = new ColorMap.Configuration.GraphFromArrayAlgorithmConfig()
+                {
+                    HowManyNeighborPixelToVisit = 2
+                },
+                ImageLoad = new ColorMap.Configuration.ImageLoadConfig() { },
+                ImageSave = new ColorMap.Configuration.ImageSaveConfig() { },
+                ImageTransform = new ColorMap.Configuration.ImageTransformConfig() { },
+                QueueFloodFill = new ColorMap.Configuration.QueueFloodFillConfig() { }
             };
         }
 

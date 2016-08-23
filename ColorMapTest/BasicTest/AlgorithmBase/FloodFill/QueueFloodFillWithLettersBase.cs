@@ -38,7 +38,8 @@
                     {
                         QueueFloodFillWithLetter = new ColorMap.Configuration.QueueFloodFillWithConfig()
                         {
-                            MaxIterationCount = 350
+                            MaxIterationCount = 350,
+                            Alphabet = ExampleGenerator.Alphabet
                         }
                     },
                     FileName = "First_"
@@ -54,7 +55,8 @@
                     {
                         QueueFloodFillWithLetter = new ColorMap.Configuration.QueueFloodFillWithConfig()
                         {
-                            MaxIterationCount = 350
+                            MaxIterationCount = 350,
+                            Alphabet = ExampleGenerator.Alphabet
                         }
                     },
                     FileName = "Second_"
@@ -70,7 +72,8 @@
                     {
                         QueueFloodFillWithLetter = new ColorMap.Configuration.QueueFloodFillWithConfig()
                         {
-                            MaxIterationCount = 500000
+                            MaxIterationCount = 500000,
+                            Alphabet = ExampleGenerator.Alphabet
                         }
                     },
                     FileName = "Third_"

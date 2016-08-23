@@ -53,8 +53,21 @@
                     {
                         QueueFloodFillWithLetter = new ColorMap.Configuration.QueueFloodFillWithConfig()
                         {
-                            MaxIterationCount = 350
-                        }
+                            MaxIterationCount = 350,
+                            Alphabet = ExampleGenerator.ExampleGenerator.Alphabet
+                        },
+                        ColorAccordingToListAlgorithm = new ColorMap.Configuration.ColorAccordingToListAlgorithmConfig()
+                        {
+                            Colors = ExampleGenerator.ExampleGenerator.ColorsList
+                        },
+                        GraphFromArrayAlgorithm = new ColorMap.Configuration.GraphFromArrayAlgorithmConfig()
+                        {
+                            HowManyNeighborPixelToVisit = 2
+                        },
+                        ImageLoad = new ColorMap.Configuration.ImageLoadConfig(){ },
+                        ImageSave = new ColorMap.Configuration.ImageSaveConfig() { },
+                        ImageTransform = new ColorMap.Configuration.ImageTransformConfig() { },
+                        QueueFloodFill = new ColorMap.Configuration.QueueFloodFillConfig() { }
                     }
                 };
                 yield return new ColorMapProcessData()
@@ -91,8 +104,22 @@
                     {
                         QueueFloodFillWithLetter = new ColorMap.Configuration.QueueFloodFillWithConfig()
                         {
-                            MaxIterationCount = 350
-                        }
+                            MaxIterationCount = 350,
+                            Alphabet = ExampleGenerator.ExampleGenerator.Alphabet
+                        },
+                        ColorAccordingToListAlgorithm = new ColorMap.Configuration.ColorAccordingToListAlgorithmConfig()
+                        {
+                            Colors = ExampleGenerator.ExampleGenerator.ColorsList
+
+                        },
+                        GraphFromArrayAlgorithm = new ColorMap.Configuration.GraphFromArrayAlgorithmConfig()
+                        {
+                            HowManyNeighborPixelToVisit = 2
+                        },
+                        ImageLoad = new ColorMap.Configuration.ImageLoadConfig() { },
+                        ImageSave = new ColorMap.Configuration.ImageSaveConfig() { },
+                        ImageTransform = new ColorMap.Configuration.ImageTransformConfig() { },
+                        QueueFloodFill = new ColorMap.Configuration.QueueFloodFillConfig() { }
                     }
                 };
                 yield return new ColorMapProcessData()
@@ -126,8 +153,22 @@
                     {
                         QueueFloodFillWithLetter = new ColorMap.Configuration.QueueFloodFillWithConfig()
                         {
-                            MaxIterationCount = 200000
-                        }
+                            MaxIterationCount = 200000,
+                            Alphabet = ExampleGenerator.ExampleGenerator.Alphabet
+                        },
+                        ColorAccordingToListAlgorithm = new ColorMap.Configuration.ColorAccordingToListAlgorithmConfig()
+                        {
+                            Colors = ExampleGenerator.ExampleGenerator.ColorsList
+
+                        },
+                        GraphFromArrayAlgorithm = new ColorMap.Configuration.GraphFromArrayAlgorithmConfig()
+                        {
+                            HowManyNeighborPixelToVisit = 2
+                        },
+                        ImageLoad = new ColorMap.Configuration.ImageLoadConfig() { },
+                        ImageSave = new ColorMap.Configuration.ImageSaveConfig() { },
+                        ImageTransform = new ColorMap.Configuration.ImageTransformConfig() { },
+                        QueueFloodFill = new ColorMap.Configuration.QueueFloodFillConfig() { }
                     }
                 };
             }

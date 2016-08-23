@@ -45,13 +45,7 @@
 
             int counter = 0;
             Dictionary<string, int> result = new Dictionary<string, int>();
-            List<Color> colors = new List<Color>()
-            {
-                Color.Yellow, 
-                Color.Green, 
-                Color.Red,
-                Color.Blue
-            };
+            List<Color> colors = _config.ColorAccordingToListAlgorithm.Colors;
 
             var sortedDictionary = (from entry in _inputData.Input
                                     orderby entry.Value.Count 

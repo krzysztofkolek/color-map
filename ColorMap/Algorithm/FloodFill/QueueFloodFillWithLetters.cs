@@ -11,10 +11,8 @@
         private Config _config { get; set; }
         private QueueFloodFillWithLettersData _algorithmData { get; set; }
         private List<string> _alphabet = new List<string>();
-        private List<string> _wholeAlphabet = new List<string>()
-        {
-             "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
-        };
+        private List<string> _wholeAlphabet = new List<string>();
+
         private List<string> _userdAlphabet = new List<string>();
         private List<QueueFloodFillDataPoint> _taggedFields = new List<QueueFloodFillDataPoint>();
         private Queue<QueueFloodFillDataPoint> temp = new Queue<QueueFloodFillDataPoint>();
@@ -25,6 +23,7 @@
         public QueueFloodFillWithLetters(Config config)
         {
             _config = config;
+            _wholeAlphabet = _config.QueueFloodFillWithLetter.Alphabet;
         }
 
         public QueueFloodFillWithLetters SetData(QueueFloodFillWithLettersData input)
