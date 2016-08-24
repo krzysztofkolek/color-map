@@ -37,8 +37,8 @@
             _inputData = input;
             return this;
         }
-        
-                
+
+
 
         public override Algorithm Run()
         {
@@ -48,7 +48,7 @@
             List<Color> colors = _config.ColorAccordingToListAlgorithm.Colors;
 
             var sortedDictionary = (from entry in _inputData.Input
-                                    orderby entry.Value.Count 
+                                    orderby entry.Value.Count
                                     descending
                                     select entry
                                     ).ToList();
@@ -59,7 +59,7 @@
             {
                 _inputData.Input.Add(sortedItem.Key, sortedItem.Value);
             }
-            
+
             foreach (var letterAndNeighbors in _inputData.Input)
             {
                 if (counter == 0)
@@ -89,9 +89,12 @@
                         }
                     }
 
-                    var firstAvailableColor = colorsTemp.Where(availableColor => !availableColor.Equals(notAvailableColor)).First();
+                    int? firstAvailableColor = colorsTemp.Where(availableColor => !availableColor.Equals(notAvailableColor)).FirstOrDefault();
 
-                    result.Add(letter, firstAvailableColor);
+                    if (firstAvailableColor.HasValue)
+                    {
+                        result.Add(letter, firstAvailableColor.Value);
+                    }
                 }
             }
 

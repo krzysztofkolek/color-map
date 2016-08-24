@@ -196,8 +196,6 @@
                             _filedToFill.Enqueue(pixel);
                         }
 
-
-
                         // Left Up
                         pixel = new QueueFloodFillDataPoint()
                         {
@@ -229,16 +227,22 @@
 
         private bool CheckIfEmpty(string[,] bmp, QueueFloodFillDataPoint pt, string tagetLetter)
         {
-            var contains = _filedToFill.Where(item => item.X == pt.X && item.Y == pt.Y).FirstOrDefault();
-            if (bmp[pt.Y, pt.X].Equals(tagetLetter) && contains == null)
+            int y = bmp.GetLength(0),
+                x = bmp.GetLength(1);
+            if (pt.X >= 0 && pt.Y >= 0 && pt.X < x && pt.Y < y)
             {
-                return true;
+                var contains = _filedToFill.Where(item => item.X == pt.X && item.Y == pt.Y).FirstOrDefault();
+                if (bmp[pt.Y, pt.X].Equals(tagetLetter) && contains == null)
+                {
+                    return true;
+                }
+                else
+                {
+                    _failedCounter++;
+                    return false;
+                }
             }
-            else
-            {
-                _failedCounter++;
-                return false;
-            }
+            return false;
         }
     }
 }

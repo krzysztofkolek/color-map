@@ -24,8 +24,15 @@
                     if (!_data.PreColoredImage[j, i].Equals("1") && !_data.PreColoredImage[j, i].Equals("0"))
                     {
                         var letter = _data.PreColoredImage[j, i];
-                        var color = _data.ListOfLettersAndCorespondingColors[letter];
-                        bitmapImage.SetPixel(j,i, color);
+                        if (_data.ListOfLettersAndCorespondingColors.ContainsKey(letter))
+                        {
+                            var color = _data.ListOfLettersAndCorespondingColors[letter];
+                            bitmapImage.SetPixel(j, i, color);
+                        }
+                        else
+                        {
+                            bitmapImage.SetPixel(j, i, Color.White);
+                        }
                     }
                     else
                     {
