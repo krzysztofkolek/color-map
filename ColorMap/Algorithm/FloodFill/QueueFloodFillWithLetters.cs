@@ -80,10 +80,21 @@
                             }
                         }
                     }
+
+                    RecycleAlphabet();
                 }
             }
 
             return this;
+        }
+
+        private void RecycleAlphabet()
+        {
+            if (_alphabet.Count.Equals(0))
+            {
+                _alphabet.Clear();
+                _alphabet.AddRange(_wholeAlphabet);
+            }
         }
 
 
